@@ -1,105 +1,98 @@
 # Part 3: Merging Changes
 
-Now that both Tom and Jerry have made their contributions in separate branches, it's time to review and merge these changes into the main project.
+Now that both Tom and Jerry have made their contributions in separate branches, it's time to review and merge these changes into the main project. And it includes;
+1. Creating a Pull Request (PR)
+2. Merging the PR into the main branch
 
-## 1. Creating a Pull Request (PR)
+## Understanding Pull Requests:
 
-### For Tom's Changes (update-navigation branch):
+A *Pull Request (PR)* is a feature of GitHub that allows you to request changes to be merged from one branch into another. It's a way to collaborate with others on a project by suggesting changes and allowing them to review and approve those changes before they are merged into the main branch.
 
-1. Go to your GitHub repository in a web browser
-2. You should see a notification about recently pushed branches with an option to "Compare & pull request"
+### How to create a pull request in GitHub:
 
-   ![Compare & Pull Request](img/placeholder-pr-notification.png) <!-- Replace with actual image -->
+#### 1. Go to your GitHub repository in a web browser
 
-3. Click on "Compare & pull request"
-4. Add a title and description explaining the changes (e.g., "Update website navigation")
-5. Click "Create pull request"
+- Open your web browser and navigate to your GitHub repository
 
-   ![Create Pull Request](img/placeholder-create-pr.png) <!-- Replace with actual image -->
+   ![GitHub Repository](img/part3/1.github-repo.png)
 
-6. Repeat the same process for Jerry's changes (add-contact-info branch)
+#### 2. Switch to the branch you want to create a pull request for
 
-## 2. Reviewing and Merging Pull Requests
+- Click on the branch name in the top left corner of the file list and select the branch Tom have been working on, in this case, *updarte-navigation* branch.
 
-### Reviewing Changes:
+   ![Update Navigation Branch](img/part3/2.update-nav-branch.png)
 
-1. Click on the "Pull requests" tab in your GitHub repository
-2. Select the PR you want to review (e.g., "Update navigation")
-3. Review the changes in the "Files changed" tab
+#### 3. Create a pull request
 
-   ![Review Changes](img/placeholder-review-changes.png) <!-- Replace with actual image -->
+- Click on the "New pull request" button
 
-4. If everything looks good, you can add a comment and approve the PR
+   ![New Pull Request](img/part3/3.navbranch-create-pull.png)
 
-### Merging the PR:
+- GitHub will take you to a new paga to initiate the pull request. It automatically selects the main project's branch and the compare branch.
 
-1. After approval, click the "Merge pull request" button
-2. Add a merge message (or keep the default)
-3. Click "Confirm merge"
-4. You'll see a message confirming the merge was successful
-5. Click "Delete branch" to clean up (optional but recommended)
+#### 4. Review tom's pull request
 
-   ![Merge Successful](img/placeholder-merge-success.png) <!-- Replace with actual image -->
+- Before creatgeing the pull request, Tom would review his changes to ensure everything is correct. GitHub shows the difference between the tom's *updarte-navigation* branch and the main project's branch. It's a good opportunity for tom to double-check his work.
 
-## 3. Handling Merge Conflicts (if any)
+   ![Review Pull Request](img/part3/4.review-work.png)
 
-If both Tom and Jerry modified the same parts of the same files, you might encounter merge conflicts:
+#### 5. Create the Pull Request
 
-1. When trying to merge the second PR, GitHub will show a message about merge conflicts
-2. Click "Resolve conflicts"
-3. In the conflict resolution editor:
-   - Look for the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
-   - Edit the file to resolve the conflicts
-   - Keep the changes you want, remove the conflict markers
+- If everything looks good, Tom can create the pull request by clicking on the "Create pull request" button.
+- Provide a title and description for the pull request.
 
-   ![Resolve Conflicts](img/placeholder-resolve-conflicts.png) <!-- Replace with actual image -->
+   ![Create Pull Request](img/part3/5.create-pull-request.png)
 
-4. Click "Mark as resolved"
-5. Click "Commit merge"
-6. Now you can merge the PR as described in the previous section
+#### Reviewing and Merging Tom's Pull Request
+Once the pull request is created, it becomes visible to other team members who can review the changes, leaving comments, and request additional changes if needed. (This is an example of what colaboration is about in DevOps). 
 
-## 4. Updating Your Local Repository
+![Review Pull Request](img/part3/6.review.png)
 
-After merging changes on GitHub, update your local repository:
+When the team agrees that the changes are ready and good to go, someone with merger permission can merge the pull request, incoporating the changes from Tom's *updarte-navigation* branch into the main project's branch.
 
-1. Switch to the main branch:
+![Merge Pull Request](img/part3/7.mergepull.png)
+
+![Merge Pull Request](img/part3/7.finalmerge.png)
+
+Following the same process, Jerry would create a pull request for his *add-user-info* branch after Tom's changes have been merged, ensuring that the project stays up to date and conflicts are minimized.
+
+#### Updating Jerry's Branch with the latest Changes
+
+Before Jerry merges his changes into the main branch, it  is essential to ensure his branch is up-to-date with the main branch. This is because other changes (like tom's changes) might have been merged into the main branch after Jerry started working on his feature. Updating ensures compatinility and reduces the chances of conflicts.
+
+#### Steps to update Jerry's Branch
+
+1. On the terminal, Switch to Jerry's branch
+
+   ```bash
+   git checkout add-user-info
    ```
-   git checkout main
-   ```
+2. Pull the latest changes from the main branch:
 
-2. Pull the latest changes:
-   ```
+   ```bash
    git pull origin main
    ```
 
-3. Delete the local branches that have been merged (optional but recommended):
+Purpose: This comman fetches the changes from the main branch (Remember, main brabch now has Tom's changes) and merges them to jerry's **add-user-info** branch. It ensures that any update made to the main branch, like Tom's merged changes, are now included in jerry's branch. This step is crucial for avoiding conflicts and ensureing that jerry's work can smoothly integrate with the main project.
+3. Merger the pull request to the main branch: Click the "Merge pull request" button on GitHub to merge Jerry's changes into the main main branch. this action combines Jerry's contribution with the rest of the project, completeing the colaboaretion, completing the collaborative workflow.
+
+#### Finalizing Jerrys Contribution
+
+Assuming there are no conflicts, Jerry's branch is now ready to be merged into the main branch. 
+
+- Push the update Branch to GitHub:
+
+   ```bash
+   git push origin add-user-info
    ```
-   git branch -d update-navigation
-   git branch -d add-contact-info
-   ```
+   
+   This command uploads Jerry's changes to the GitHub repository. Now, his branch is up-to-date with the main branch, and it's ready to be merged.
 
-## 5. Verifying the Merged Changes
+   the *origin* keyword in the command refers to the default name Git gives to the remote repository from which you clone your project. It's like a shortcut or an alias for the full url of the 
+   repository in GitHub.
 
-1. Open the `index.html` file in your text editor
-2. You should see both Tom's and Jerry's changes combined
-3. You can also view the commit history to see how the project evolved:
-   ```
-   git log --oneline --graph --all
-   ```
+   - Create the Pull Request (PR) for Jerry's changes, similar to Tom's process.
 
-   ![Git Log](img/placeholder-git-log.png) <!-- Replace with actual image -->
+   - Merge Jerry's Pull Request. Complete the process by merging the PR into the main branch.
 
-## Conclusion
-
-Congratulations! You've successfully:
-1. Created and worked with multiple branches
-2. Made changes in isolation
-3. Created pull requests for code review
-4. Merged changes into the main branch
-5. Handled merge conflicts (if any occurred)
-
-This workflow is fundamental to collaborative software development and will be used extensively in your DevOps journey.
-
----
-
-**Note to user:** Please replace the placeholder image paths with your actual screenshots when available. The suggested image names indicate what each image should represent.
+   This simulated workflow illustrates how Git facilitates collaborative developement, allowing multiple developers to work on a project simultaneously while maintaining a clear history of changes and contributions, even when working on same files.
