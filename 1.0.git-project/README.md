@@ -85,65 +85,73 @@ This sends commit from your main bnranch on your laptop to GitHubn (Remote Repos
 
 To simulate both Tom and Jerry working on the same laptop, you'll switch between two branches, making changes as each character.
 
-### 1. Tom Work:
+### 1. Tom's Work:
 
-- Navigate to the project directory you just cloned:
-  `cd DevOps-Projects-Darey`.
-  This moves you into the folder containing the clones GitHub repository on your local machine. It's like stepping into the project's workspace.
-- Cehck the current branch: This shows you a list of all branches in your local respository. Initially, you will see only the _"main"_ branch because that's the default starting point and no other breanchs have been created yet.
-  `git branch`.
-- Create a new branch for Tom's work:
-  `git checkout -b update-navigation`.
-  ![](img/9.git-checkout-new-branch.png)
-  This creates a new branch named _"update-navigation"_ (you may name it whatever your want). The command also automatically switches to the newly created branch from the _"main"_ branch. This branch _"update-navigation"_ is where you'll simulate Tom's updates to the website without affecting whatever is in the _"main"_ branch.
-- Check the nranch again to see your newly created branch.
-  `git branch`
-  ![](img/10.new-branch.png)
-  Runining _git branch_ again now shows your newly created branch, indicating you're now working in this new _"workspace"_ dedicated to Tom's navigation updates.
-- Racall you created an empty file _"index.html"_ in the main. The file will also exist in the `update-navigation-branch`: Open the `index.html` and add the content below.
-- Add the content below
+  - Navigate to the project directory you just cloned:
+    `cd DevOps-Projects-Darey`.
+    This moves you into the folder containing the clones GitHub repository on Tom's local machine. It's like stepping into the project's workspace.
+  - Cehck the current branch: This shows you a list of all branches in your local respository. Initially, you will see only the _"main"_ branch because that's the default starting point and no other breanchs have been created yet.
 
-`This is Tom adding Navigation to the AI-website`
+    `git branch`.
 
-This simulates Toms Contribution to the project. This text reoresents the text he is doing on the navigation bar. In the real world, this will be an actual software code.
+  - Create a new branch for Tom's work:
 
-- Check changes has not been staged
+    `git checkout -b update-navigation`.
 
-`git status`
-![](img/11.unstaged-git-status.png)
+    ![](img/9.git-checkout-new-branch.png)
 
-At this stage, Tom has modified the file, but these changes haven't been prepared for a commit in Git. This is indicated by the file name appearing in _red_ in the terminal output, signalin that the changes are recognized by Git buyt not yet stagged.
+    This creates a new branch named _"update-navigation"_ (you may name it whatever your want). The command also automatically switches to the newly created branch from the _"main"_ branch. This branch _"update-navigation"_ is where you'll simulate Tom's updates to the website without affecting whatever is in the _"main"_ branch.
+  - Check the branch again to see your newly created branch.
 
-- Stage Tome Changes:
-  `git add index.html` => Used if I was in the same directory
-  `git add .` to stage all changes while working on the project
+    `git branch`
 
-![](img/12.git-add.png)
+    ![](img/10.new-branch.png)
 
-Now, after staging the changes, the file name will appear in green in the terminal output. This color change signifies that the file has been successfully staged, making it ready for the next step, which is committing these changes to the project's history.
+    Runining _git branch_ again now shows your newly created branch, indicating you're now working in this new _"workspace"_ dedicated to Tom's navigation updates.
+  - Racall you created an empty file _"index.html"_ in the main. The file will also exist in the `update-navigation-branch`: Open the `index.html` and add the content below.
+  - Add the content below
 
-- Commit Tom's Changes
+  `This is Tom adding Navigation to the AI-website`
 
-`git commit -m "update navigation bar"`
+  This simulates Toms Contribution to the project. This text reoresents the text he is doing on the navigation bar. In the real world, this will be an actual software code.
 
-This takes the staged changes and recoreds them in the repository's history with a message describing what was done. This commit is a milestone, making a special point in the project's developement. Of course.
+  - Check changes has not been staged
 
-<span style ="color: red;">Note that the images added to the img file to be used for the read me documentation too is part of this commit, beyond the scope of this project. </span>
+  `git status`
+  ![](img/11.unstaged-git-status.png)
 
-- Push Tom's brancg to GitHub:
+  At this stage, Tom has modified the file, but these changes haven't been prepared for a commit in Git. This is indicated by the file name appearing in _red_ in the terminal output, signalin that the changes are recognized by Git buyt not yet stagged.
 
-`git push origin updatge-navigation`
-![](img/13.gitpush.png)
-This sends Tom's commits from your local branch on your laptop to GitHub (remote repository). It's like publishing your work so tht others (ir ub this case, "Jerry") can see and interact with it. This setup updates the repository with Tom's Contributions.
+  - Stage Tome Changes:
+    `git add index.html` => Used if I was in the same directory
+    `git add .` to stage all changes while working on the project
 
-After completing Tom's workflow, you will now simulate Jerry's contribution to the promect. To do this, you'll
+  ![](img/12.git-add.png)
 
-- switch back to the main branch,
-- create a new branch for Jerry,
-- make changes, and then
-- stage, commit, and push these changes to GitHub/
+  Now, after staging the changes, the file name will appear in green in the terminal output. This color change signifies that the file has been successfully staged, making it ready for the next step, which is committing these changes to the project's history.
 
-1. Jerry's Work:
+  - Commit Tom's Changes
+
+  `git commit -m "update navigation bar"`
+
+  This takes the staged changes and recoreds them in the repository's history with a message describing what was done. This commit is a milestone, making a special point in the project's developement. Of course.
+
+  <span style ="color: red;">Note that the images added to the img file to be used for the read me documentation too is part of this commit, beyond the scope of this project. </span>
+
+  - Push Tom's brancg to GitHub:
+
+  `git push origin updatge-navigation`
+  ![](img/13.gitpush.png)
+  This sends Tom's commits from your local branch on your laptop to GitHub (remote repository). It's like publishing your work so tht others (ir ub this case, "Jerry") can see and interact with it. This setup updates the repository with Tom's Contributions.
+
+  After completing Tom's workflow, you will now simulate Jerry's contribution to the promect. To do this, you'll
+
+  - switch back to the main branch,
+  - create a new branch for Jerry,
+  - make changes, and then
+  - stage, commit, and push these changes to GitHub/
+
+### 2. Jerry's Work:
 
 - Switch Back to the Main Branch
   `git checkout main`
@@ -178,8 +186,4 @@ After completing Tom's workflow, you will now simulate Jerry's contribution to t
 
   This command uploads Jerry's Branch to the GitHub repository, making it available for review and merging into the main project
 
-So far you have experienced collaboration betwen Tom and Jerry. But that is not all. Somenone needs to review their work, merge the changes to the main project, and resolve conflicts if any. In the next project, we will see how that work.
-
-# Note to Instructor
-
-<span style="color: red;"> The use of `git add index.html` was replaced with `git add .` to add all the changes make in the project based on the images and modification that was happening in the ReadMe file. Kindly advise if i should ignore all the changes in subsequent prejects. Thanks.</span>
+### 3. So far you have experienced collaboration betwen Tom and Jerry. But that is not all. Somenone needs to review their work, merge the changes to the main project, and resolve conflicts if any. In the next project, we will see how that work.
