@@ -1,271 +1,463 @@
-# 2.0 intro to Linux
-# INTRODUCTION TO LINUX
+# Introduction to Linux
 
-In the dynamic landscape of technology, mastering the fundermentals is essential for anyobe aspiring to excel in the fields such as Devops, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, AI, and QA Testing. This project is designed to equip with a solid foundation in Linux, a crucial skillset for professionals in these domains. Understanding the tech from the basics lays the groundwork for success in various tech-centered careers.
+In the dynamic landscape of technology, mastering the fundamentals is essential for anyone aspiring to excel in fields such as DevOps, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, and QA Testing. This project is designed to provide a solid foundation in Linux, a crucial skillset for technology professionals. Understanding these technical fundamentals lays the groundwork for success in various tech-centered careers.
 
 ## What is Linux?
-Linus is a free, open-source operating system similar to windows or macOS, but it's more widely used for servers, supercomputers, and embedded devices. It's know for it's stability, security, and customizability, allowing users to modify and distribute thier versions. Linus runs on a wide range of hardware/devices, from desktops and servers to mobile devices embedded systems, and powers much of the internet's infrastructure. It is supported by a global community of developers who contributes to its many distributions, each tailoerd for specific needs or preferences. Linux is the foundation of many popular operating systems, including Ubuntu, Fedora, and Debian which are different distributions of Linux.
+
+Linux is a free, open-source operating system similar to Windows or macOS, but it's more widely used for servers, supercomputers, and embedded devices. It's known for its stability, security, and customizability, allowing users to modify and distribute their own versions. Linux runs on a wide range of hardware and devices, from desktops and servers to mobile devices and embedded systems, and powers much of the internet's infrastructure. It is supported by a global community of developers who contribute to its many distributions, each tailored for specific needs or preferences. Linux is the foundation of many popular operating systems, including Ubuntu, Fedora, and Debian, which are different distributions of Linux.
 
 ## Why Linux?
 
-Linux is a popular choice for professionals in the fields of DevOps, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, AI, and QA Testing. It is a powerful and flexible operating system that is used by many of the world's largest companies, including Google, Amazon, and Facebook. It is also a popular choice for individuals who want to learn about operating systems and how they work.
+Linux is the preferred operating system for professionals in technology fields including:
+
+- **Server Infrastructure**: Powers over 90% of the world's cloud infrastructure
+- **Development Environment**: Offers powerful command-line tools and scripting capabilities
+- **Security**: Provides robust security features and frequent updates
+- **Cost-Effective**: Free and open-source with no licensing fees
+- **Customization**: Highly customizable to meet specific needs
+- **Community Support**: Backed by a large, active community of developers
+
+Major technology companies like Google, Amazon, and Facebook rely on Linux for their infrastructure, making it an essential skill for IT professionals.
 
 ## Linux Distributions
 
-Linux distributions, often referred to as `"distros"`, are different versions (flavours ) of the Linux operating system built by different companies or organizations using the Linux kernel. Each distro is tailored for specific needs or preferences. They offer differnt configurations, desktop environments, and package managers, and software repositories, and then they are branded. Some popular Linux distributions include Ubuntu, CentOS, Fedora, and Debian.
+Linux distributions, often referred to as "distros", are different versions of the Linux operating system built around the Linux kernel. Each distribution is tailored for specific needs or preferences, offering different configurations, desktop environments, package managers, and software repositories. Key characteristics of Linux distributions include:
+
+- **Package Management**: Different package managers (apt, yum, dnf, etc.)
+- **Release Cycles**: Varying release schedules and support periods
+- **Default Software**: Different pre-installed applications and tools
+- **Target Audience**: Ranging from beginner-friendly to expert-oriented
+
+Popular Linux distributions include Ubuntu, CentOS, Fedora, and Debian, each with its own strengths and use cases.
 
 ## Popular Linux Distributions
 
 ### Ubuntu
-Ubuntu is a popular Linux distribution that is based on Debian. It is known for its ease of use and its support for a wide range of hardware. It is also a popular choice for professionals in the fields of DevOps, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, AI, and QA Testing. It is the most popular Linux distribution and is used by many of the world's largest companies, including Google, Amazon, and Facebook. It's an excelent choich for beginners and professionals alike. 
+
+**Based on:** Debian  
+**Package Manager:** APT (Advanced Package Tool)  
+**Best for:** Beginners, Desktops, Cloud Computing  
+
+Ubuntu is one of the most popular Linux distributions, known for its user-friendly interface and extensive documentation. It offers:
+
+- Regular releases every six months with long-term support (LTS) versions every two years
+- Large software repository with thousands of free applications
+- Strong community support and extensive documentation
+- Excellent hardware compatibility
 
 ![Ubuntu](img/linux-ubuntu.jpg)
 
 ### CentOS
-CentOS is a popular Linux distribution that is based on Red Hat Enterprise Linux (RHEL). It is favoured in enterprises and server environments.  due to it's stability and long-term support. It is essentially a free and open-source version of Red Hat Enterprise Linux (RHEL) which is another distro itself, but requires paid license for production use. System administrators oftern choose centors because it is free, reliable and robust.
+
+**Based on:** RHEL (Red Hat Enterprise Linux)  
+**Package Manager:** YUM/DNF  
+**Best for:** Enterprise Servers, Web Hosting  
+
+CentOS (Community ENTerprise Operating System) is a stable, predictable, and reproducible platform derived from RHEL:
+
+- Free alternative to Red Hat Enterprise Linux
+- Long-term support with security updates
+- Ideal for production servers and enterprise environments
+- Focuses on stability over cutting-edge features
 
 ![CentOS](img/CentOS.png)
 
 ### Fedora
-Fedora is a popular Linux distribution that is based on Red Hat Enterprise Linux (RHEL). It is known for its stability and its support for a wide range of hardware. It is also a popular choice for professionals in the fields of DevOps, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, AI, and QA Testing. It is the most popular Linux distribution and is used by many of the world's largest companies, including Google, Amazon, and Facebook. It's an excelent choich for beginners and professionals alike. 
+
+**Based on:** RHEL (Upstream)  
+**Package Manager:** DNF  
+**Best for:** Developers, Cutting-edge Technology  
+
+Fedora serves as a testing ground for technologies that may eventually be included in RHEL:
+
+- Features the latest software versions
+- Strong focus on open-source principles
+- Excellent development tools and container support
+- Regular six-month release cycle
 
 ![Fedora](img/linux-fedora.jpg)
 
 ### Debian
-Debia is also know for it's commitment to free and open=source software principles. Makes Linux available for free, provide a wide range of software prackages and support multiple hardware archetictures.
+
+**Based on:** Independent  
+**Package Manager:** APT  
+**Best for:** Stability, Servers, Custom Distributions  
+
+Debian is one of the oldest and most influential Linux distributions:
+
+- Strict adherence to free software principles
+- Extremely stable with long release cycles
+- Serves as the foundation for many other distributions (including Ubuntu)
+- Supports a wide range of hardware architectures
+
 ![Debian](img/debian-logo.jpg)
 
-### Fedora
-Fedora is a cutting-edge distribution that focuses on integrating the lates software and technologies. It's a great choic for those who want to experiment with new features and applications. Fedora also serves as a testing ground for new software for Red Hat's Enterprise Linux products.
+## Installation and Initial Setup
 
-![Fedora](img/Fedora-12-1.jpg)
-
-
-## Instalation and Initial Setup (Configuration)
-
-In this section, we will create a server in the clud, and gain access to it from our local environment. When we say "Local environment", we mean our computer which could be windows or mac operating system in most cases, or even linux itself.
+In this section, we will create a cloud server and establish a connection to it from our local environment. Your local environment can be any operating system (Windows, macOS, or Linux) that you're currently using to access this guide.
 
 The setup is as shown below:
 
 ![Setup](img/1.0-remote-connection.gif)
 
-We will user *AWS* (Amazon Web Services) to create a server in the cloud. For now, do not worry about trying to learn AWS as that will be dealt with much later along the line.
+We will use *AWS* (Amazon Web Services) to create a cloud server. For now, focus on the Linux aspects rather than AWS specifics, as AWS will be covered in more detail later.
 
-Rught now, all that is needed is to have a *Linux* server in the cloud, and gain access to it from our local environment.
-
-AWS can provide us with a free virual server called EC2 *(Elastic Compute Cloud)*.
-
-### Let us create an EC2 instance, i.e., a remote linux server
-
-You may watch the video below to ger yourself set up.
-
-- [AWS account setup and provisioning an Ubuntu Server](https://www.youtube.com/watch?v=xxKuB9kJoYM)
-
-- [Connecting  to your EC2 instance](https://www.youtube.com/watch?v=TxT6PNJts-s)
-
-Or follow the guidline I provide below:
-
-- i. Register a new AWS account following this Instruction: https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
-
-- ii. sign in to your AWS account.
-
-![AWS](img/1.0aws-signin.png)
-
-- iii.  on the top left select services and search for "Elastic cloud compute (EC2)".
-
-![EC2](img/2.0.search-ec2-instance.png)
-
-- iv. From the menue on the left side, select "Instances" and click on "Launch Instance".
-
-- v. Click on "Launch Instance"
-
-![Instances](img/2.1.launch-ec2-instance.png)
-
-- vi. select the AMI (Amazon Machine Image) to use. For this project, we will use the free tier eligible AMI.
-
-
-- vii. Select the instance type. For this project, we will use the t2.micro instance.
-
-![Instance Type](img/2.3.select-instance-type.png)
-
-- viii. Configure the instance details. For this project, we will use the default settings.
-
-- ix. Add storage. For this project, we will use the default settings.
-
-- x. Add tags. For this project, we will use the default settings.
-
-- xi. Configure security group. For this project, we will use the default settings.
-
-- xii. Review and launch. For this project, we will use the default settings.
-
-- xiii. Launch. For this project, we will use the default settings.
-
-- xiv. Select an existing key pair or create a new one. For this project, we will use the default settings.
-
-![Key Pair](img/4.0key-pair.png)
-
-- xv. Download the key pair. For this project, we will use the default settings.
-
-- xvi. Launch the instance. For this project, we will use the default settings.
-
-![Launch Instance](img/5.0.instance-created.png)
-
-- xvii. Wait for the instance to start. For this project, we will use the default settings.
-
-
-- Follow this video to see a step by step guide for createing and connecting to your EC2 instance: 
-
-[![Video Title](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=86Tuwtn3zp0)
-
-
-- ## Connect to the server (EC2 instance)
-Now it's time to get onto the server you have just created in the cloud. You will need a number of things to setup depending on your operating system.
-
-1. *A clinent tool:* A client tool is a program on your computer that lets you communicate and give commands to a remote server. Imagaine it as a doorway on your laptop tht allows you to speak to a far-off computer as if it were right in front of you. By typing commands into a terminal, you can ask the remote server to perform tasks, retrieve data, or even run programs, all without being physically present near the server. This is especially useful for managin websites, running software, or accessing files from anywhere in the world, just by using simple text commands.
-
-2. *A secure protocol:* A secure protocol is like a protected path over the internet that ensures the information you send from your computer to another remote server is safe from prying eyes. Imagine sending a secrete letter through a series of locked, armored vehicles instead of a regular open road; that's what a secure protocol does for your data. It encrypts, or scrambles your information so that only the intended recipient, the remote server, can understand it. The populare protocol for this purpose is called SSH (Secure Shell). 
-
-3. *A key pair:* A key pair is a pair of files that are used to authenticate your identity when connecting to a remote server. The public key is stored on the remote server, and the private key is stored on your computer. When you connect to the remote server, the server uses your public key to verify your identity, and then grants you access to the server. The private key is never shared with anyone, and it is used to encrypt the data you send to the remote server.
-
-## Client tools to install
-
-### Windows
-
-if you are on windows, you will need to have tools such as [MobaXterm](https://mobaxterm.mobatek.net/) installed. There are many other options such as:
-
-![MobaXterm](img/6.mobileextern.png)
-
-- [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
-- [Bitvise](https://www.bitvise.com/ssh-client)
-- [Git Bash](https://git-scm.com/download/win) which is available by default on windows 10 and later
-- [Windows Terminal (powershell)](https://docs.microsoft.com/en-us/windows/terminal/)
-
-For simplicity, we will focus only on *MobaXterm* which is perfect for all oure needs through out this Program
-
-For MacOs users, client terminal is already available so you don't have to do anything. simply open up the terminal by navigating to `Applications > Utilities > Terminal`
-
-For Linux users, client terminal is already available so you don't have to do anything. simply open up the terminal by navigating to `Applications > Utilities > Terminal`
-
-
-## Connecting using SSH
-Now that we have the terminal open, it's time to connect to the remote server we created earlier
-
-Most client tools already have SSH installed, so you literally don't have to do anything other than simply typing the comman "ssh" on the terminal.
-
-1. Open up the Terminal
-
-2. Locate the *".pem"* file you downloaded earlier when we provisioned the EC2 instance.
-    
-    1. Assuming it got downloaded in the "Downloads" folder
-    2. Use Linux command to navigate into that folder
-
-        ```bash
-        cd ~/Downloads
-        ```
-        Quick explantion of the above command:
-        - *`cd`* : stands for "change directory", which is a command used to navigate between folders in the terminal.
-        - *`~/Downloads`* : is the path to the "Downloads" folder in the user's home directory.
-        - *`~`* : is a shortcut for the user's home directory.
-        - *`Downloads`* : is the name of the folder where the *".pem"* file was downloaded.
-    3. the name of my pem key is `efe-key-instance.pem`. We can run `ls 0l` command and it will show the list there.
-
-    ![pem file location](img/7.0.pem-file-location.png)
-
-    4. Extract the public IP address of the server you created from AWS
-
-    ![aws ip address](img/8.0.public-IP-address.png)
-
-    5. Connect to the server using SSH
-
-    ```bash
-    ssh -i "efe-key-instance.pem" ubuntu@16.171.176.100
-    ```
-    Let's breakdown the command:
-
-    *`ssh`* : stands for "secure shell", which is a protocol used to connect to a remote server and manage them over an unsecured network (the internet is an unsecured netwrok).
-
-    *`-i`* : stands for "identity file", which is the path to the private key file used to authenticate the user. In this case, the "efe-key-instance.pem" is the private key file. This file is essential for providing your identity to the server without needing a password. The .pem file is often used when connecting to servers such as those hosted on AWS (Amazon Web Services).
-
-    *`username@public IP address`* : is the username and public IP address of the remote server. `ubuntu` is the default username for AWS EC2 instances. And `public IP address` is the public IP address of the remote server. `16.171.176.100` is the public IP address of the remote server. The @ symbol separates the username from the server's address.
-
-Once you establish a successful connections, you should see an output like the below which proves that you have successfully connected to your remote server.
-
-![ssh connection](img/9.connected-to-remote-server.png)
+AWS provides a free tier virtual server called EC2 (Elastic Compute Cloud), which we'll use for our Linux environment.
 
 ## Package Managers
-Most of  the times, when working on linux, there will be the need to install tools. Think about it, the servers are used to host websites, and there has to be a tool that will help in the rendering of the web pages. Some commonly used tool is called *Apache*,  *Nginx*, *Lighttpd*, *IIS*, *GlassFish*, *JBoss*, *IBM WebSphere*, *Oracle WebLogic*, *Tomcat*, *Resin*, *WildFly*. in this course, we will focus on *Nginx*.
 
-Since the servers are not your regular computers where you can go to a browser to click and download, there is the need to have package managers that can help achieve this.
+Package managers in Linux are essential tools that automate the process of installing, updating, configuring, and removing software packages. They handle dependencies and ensure that software is properly installed and configured on your system.
 
-Package managers in Linux are tools that automate the process of installing, udating, configurating, and removing software packages on a Linux distributions.
+### Common Package Managers
 
-### Commonly used package managers 
-*APT (Advanced Package Tool)*: Used by Debian-based distributions such as Debian, Ubuntu, and derivatives. COmmands include `apt-get` and `apt`. You will get to use this a lot very soon.
+#### APT (Advanced Package Tool)
+- **Used by**: Debian, Ubuntu, and derivatives
+- **Key Commands**:
+  ```bash
+  sudo apt update          # Update package lists
+  sudo apt install <pkg>   # Install a package
+  sudo apt upgrade         # Upgrade all upgradable packages
+  sudo apt remove <pkg>    # Remove a package
+  ```
 
-*YUM (Yellowdog Updater Modified)* Originally used by Red Hat and CentOS, `YUM` is now largely replaced by `dnf` in modern Red Hat-based distributions. It simplifies package management by resolving dependencies just like `apt`.
+#### YUM (Yellowdog Updater Modified)
+- **Used by**: Older Red Hat-based distributions (RHEL, CentOS 7)
+- **Key Commands**:
+  ```bash
+  sudo yum update          # Update all packages
+  sudo yum install <pkg>   # Install a package
+  sudo yum upgrade         # Upgrade packages
+  sudo yum remove <pkg>    # Remove a package
+  ```
 
-*DNF (Dandified YUM)*: The successor to `YUM`, `DNF` is the default package manager for modern Red Hat-based distributions such as Fedora and CentOS. It provides a more user-friendly interface and better performance than `YUM`.
+#### DNF (Dandified YUM)
+- **Used by**: Newer Red Hat-based distributions (Fedora, RHEL 8+, CentOS 8+)
+- **Key Commands**:
+  ```bash
+  sudo dnf update          # Update all packages
+  sudo dnf install <pkg>   # Install a package
+  sudo dnf upgrade         # Upgrade packages
+  sudo dnf remove <pkg>    # Remove a package
+  ```
 
-## Installing, Updating and Removing Software
+### Package Management Best Practices
+1. Always update your package lists before installing new software
+2. Regularly update your system to get security patches
+3. Only install software from trusted repositories
+4. Clean up unused packages to save disk space
+5. Understand the dependencies before removing packages
 
-Since we are already on an Ubuntu based server, lets explore how to install tools on a linux server.
+## Setting Up Your Development Environment
 
-1. *Update Package Lists* Before installing new software or updating existing packages it's important to refresh the package list
+### Prerequisites for Connecting to EC2
+
+Before connecting to your EC2 instance, you'll need:
+
+1. **SSH Client**: A program to establish secure connections to your server
+2. **Key Pair**: The `.pem` file you downloaded during EC2 instance creation
+3. **Instance Details**: Public IP address or DNS of your EC2 instance
+
+### Installing SSH Clients
+
+#### Windows Users
+
+Windows users need to install an SSH client. Recommended options include:
+
+1. **MobaXterm** (Recommended)
+   - Download from: [MobaXterm Official Site](https://mobaxterm.mobatek.net/)
+   - Features built-in X server and tabbed interface
+   
+   ![MobaXterm](img/6.mobileextern.png)
+
+2. **Alternative SSH Clients**
+   - [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+   - [Bitvise](https://www.bitvise.com/ssh-client)
+   - [Git Bash](https://git-scm.com/download/win) (Included with Git for Windows)
+   - [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/) (Modern terminal application)
+
+#### macOS and Linux Users
+
+Both macOS and Linux come with built-in terminal and SSH client. You can access the terminal through:
+
+- **macOS**: `Applications > Utilities > Terminal` or search for "Terminal"
+- **Linux**: Typically `Applications > Utilities > Terminal` or press `Ctrl+Alt+T`
+
+## Connecting to Your EC2 Instance
+
+### Understanding the Connection Process
+
+When connecting to your EC2 instance, three main components work together:
+
+1. **SSH Client**: The software you use to establish the connection
+2. **Key Pair Authentication**: Uses your private key (`.pem` file) to verify your identity
+3. **Instance Access**: Requires the instance's public IP address/DNS and the appropriate username
+
+### Step-by-Step Connection Guide
+
+1. **Locate Your Key Pair**
+   - Find the `.pem` file you downloaded during EC2 instance creation
+   - It's typically in your `Downloads` folder
+   - Example: `~/Downloads/your-key-pair.pem`
+
+2. **Set Proper Permissions** (Linux/macOS only)
+   ```bash
+   chmod 400 ~/Downloads/your-key-pair.pem
+   ```
+   This ensures only you can read the private key.
+
+3. **Find Your Instance's Public IP**
+   - Go to AWS EC2 Console
+   - Select your instance
+   - Find the "Public IPv4 address" or "Public IPv4 DNS"
+   
+   ![AWS IP Address](img/8.0.public-IP-address.png)
+
+4. **Connect Using SSH**
+   
+   The basic connection command is:
+   ```bash
+   ssh -i /path/to/your-key-pair.pem username@public-ip-address
+   ```
+   
+   For Ubuntu instances, the default username is `ubuntu`:
+   ```bash
+   ssh -i ~/Downloads/your-key-pair.pem ubuntu@12.34.56.78
+   ```
+
+   **Command Breakdown**:
+   - `ssh`: Secure Shell protocol
+   - `-i`: Specifies the identity (private key) file
+   - `username`: Default is `ubuntu` for Ubuntu-based AMIs
+   - `@public-ip-address`: Your instance's public IP or DNS
+
+5. **First Connection Warning**
+   When you connect for the first time, you'll see a message like:
+   ```
+   The authenticity of host '12.34.56.78 (12.34.56.78)' can't be established.
+   ECDSA key fingerprint is SHA256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+   Are you sure you want to continue connecting (yes/no/[fingerprint])?
+   ```
+   Type `yes` and press Enter.
+
+6. **Successful Connection**
+   You should see a welcome message and a command prompt like:
+   ```
+   Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-1011-aws x86_64)
+   
+   ubuntu@ip-172-31-22-123:~$
+   ```
+   
+   ![SSH Connection](img/9.connected-to-remote-server.png)
+
+### Troubleshooting Connection Issues
+
+- **Permission Denied (publickey)**: 
+  - Verify the key pair name matches the one used when launching the instance
+  - Ensure you're using the correct username for your AMI type
+  
+- **Connection Timed Out**:
+  - Check if your security group allows inbound SSH (port 22) from your IP
+  - Verify the instance is in the running state
+  
+- **Unprotected Private Key File**:
+  - On Linux/macOS, ensure your key has the correct permissions (400)
+  
+- **Server Refused Our Key**:
+  - The key pair might not be properly associated with the instance
+  - You may need to terminate the instance and launch a new one with the correct key pair
+
+
+## Working with Package Management
+
+Package managers are essential tools in Linux that handle the installation, configuration, upgrading, and removal of software packages. They automatically resolve dependencies and ensure proper installation, making software management efficient and reliable.
+
+### Understanding Package Management
+
+#### What is a Package Manager?
+A package manager is a collection of software tools that automates the process of installing, upgrading, configuring, and removing computer programs for a computer's operating system in a consistent manner.
+
+#### Why Use a Package Manager?
+- **Dependency Resolution**: Automatically handles required libraries and dependencies
+- **Version Control**: Manages software versions and updates
+- **Security**: Verifies package authenticity and provides security updates
+- **Efficiency**: Simplifies software management through a centralized system
+
+### Common Package Managers
+
+#### 1. APT (Advanced Package Tool)
+**Used in**: Debian, Ubuntu, and derivatives  
+**Key Commands**:
 
 ```bash
-sudo apt update # update the package list. This  is for Debian/Ubuntu-based systems.
-```
+# Update package lists from repositories
+sudo apt update
 
-```bash
-sudo yum update # For Red Hat/Fedora-based systems
-```
-
-Note: Ignore `sudo` for now. it will be explained later.
-
-![apt update](img/10.apt-update.png)
-
-2. *Install Software Packages*
-
-```bash
-sudo apt install tree # For Debian/Ubuntu-based systems.
-```
-
-If you are on the other Linux distribution using `yum`, the command would be looking like this:
-
-```bash
-sudo yum install tree # For Red Hat/Fedora-based systems
-```
-
-![apt install tree](img/11.0.install-tree.png)
-
-3. *Verifying installed Packages* To confirm that the desired packages or software has been successfully installed, simply run the `tree` command, and spedify the path you want to see the tree structure.
-
-For example:
-
-```bash
-tree /path
-```
-
-![apt install tree](img/12.tree-cmd.png)
-
-Play arround with the tool and specify different folders on the server.
-
-4. *Update Installed Packages*: Keep your system up-to-date by updating the installed packages
-
-```bash
+# Upgrade all installed packages
 sudo apt upgrade
+
+# Install a new package
+sudo apt install package-name
+
+# Remove a package
+sudo apt remove package-name
+
+# Search for packages
+apt search search-term
+
+# Show package information
+apt show package-name
 ```
 
-![apt upgrade](img/13.apt-upgrade.png)
-
-5. *Remove Sofware Packages*: To remove the `tree` package we installed ealier, run the below command
+#### 2. YUM (Yellowdog Updater Modified)
+**Used in**: Older Red Hat-based distributions (RHEL 7, CentOS 7)  
+**Key Commands**:
 
 ```bash
-sudo apt remove tree
-```
-![apt remove tree](img/13.1apt-remove-tree.png)
+# Update all packages
+sudo yum update
 
-Practice: Explorign other tools on linux an d practing everything again. FOr example, install the tool `nginx`.
+# Install a package
+sudo yum install package-name
+
+# Remove a package
+sudo yum remove package-name
+
+# Search for packages
+yum search search-term
+
+# Show package information
+yum info package-name
+```
+
+#### 3. DNF (Dandified YUM)
+**Used in**: Modern Red Hat-based distributions (Fedora, RHEL 8+, CentOS 8+)  
+**Key Commands**:
+
+```bash
+# Update all packages
+sudo dnf update
+
+# Install a package
+sudo dnf install package-name
+
+# Remove a package
+sudo dnf remove package-name
+
+# Search for packages
+dnf search search-term
+
+# Show package information
+dnf info package-name
+```
+
+### Practical Package Management Examples
+
+#### Installing Software
+To install the `nginx` web server:
+
+```bash
+# For Debian/Ubuntu
+sudo apt update
+sudo apt install nginx
+
+# For RHEL/CentOS 7
+sudo yum install epel-release
+sudo yum install nginx
+
+# For Fedora/RHEL 8+/CentOS 8+
+sudo dnf install nginx
+```
+
+#### Verifying Installation
+Check if the service is running:
+
+```bash
+# Check status of nginx
+sudo systemctl status nginx
+
+# Start nginx if not running
+sudo systemctl start nginx
+
+# Enable nginx to start on boot
+sudo systemctl enable nginx
+```
+
+#### Updating Packages
+Keep your system up-to-date:
+
+```bash
+# Update package lists (Debian/Ubuntu)
+sudo apt update
+
+# Upgrade all installed packages
+sudo apt upgrade
+
+# For RHEL-based systems
+sudo yum update    # or sudo dnf update
+```
+
+#### Removing Software
+To remove a package:
+
+```bash
+# For Debian/Ubuntu
+sudo apt remove package-name
+
+# For RHEL-based systems
+sudo yum remove package-name    # or sudo dnf remove
+```
+
+### Package Management Best Practices
+
+1. **Regular Updates**
+   - Update your package lists frequently
+   - Apply security updates promptly
+
+2. **Clean Up**
+   - Remove unused packages to free up space
+   - Clear the package cache periodically
+   ```bash
+   # For Debian/Ubuntu
+   sudo apt autoremove
+   sudo apt autoclean
+   
+   # For RHEL-based
+   sudo yum autoremove    # or sudo dnf autoremove
+   sudo yum clean all     # or sudo dnf clean all
+   ```
+
+3. **Security**
+   - Only install packages from trusted repositories
+   - Verify package signatures when possible
+   - Be cautious with third-party repositories
+
+4. **Troubleshooting**
+   - If you encounter dependency issues, try:
+     ```bash
+     # For Debian/Ubuntu
+     sudo apt --fix-broken install
+     
+     # For RHEL-based
+     sudo yum-complete-transaction
+     ```
+
+### Practice Exercise: Install and Configure Nginx
+
+1. Install Nginx using your distribution's package manager
+2. Start the Nginx service
+3. Enable Nginx to start on boot
+4. Verify it's running by accessing your server's IP in a web browser
+5. (Optional) Configure a simple static website
+
+```bash
+# Example for Ubuntu
+sudo apt update
+sudo apt install nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+After installation, open a web browser and navigate to your server's IP address. You should see the default Nginx welcome page.
 
 In the next stepk we would look more intor hands on project that involves the use of commands on linux system. working with Linux commands typically includes tasks such as 
 - navigating the file system, 
