@@ -471,18 +471,39 @@ After installation, open a web browser and navigate to your server's IP address.
 
 If you encounter a "refused to connect" error when trying to access your Nginx server, follow these steps to resolve the issue:
 
-1. **Check Nginx Status**
-   ```bash
-   sudo systemctl status nginx
-   ```
+Let's verify if Nginx is accessible and check the necessary configurations:
 
-2. **Enable UFW (Uncomplicated Firewall) and Allow Nginx**
-   ```bash
-   sudo ufw enable
-   sudo ufw allow 'Nginx Full'
-   sudo ufw status  # Verify the rules are applied
-   ```
+1. **First, let's check if Nginx is running:**
+```bash
+curl -I http://localhost
+```
+2. **Check if UFW is active and allowing Nginx:**
+```bash
+sudo ufw status
+```
+3. **If UFW is active, ensure Nginx is allowed:**
+```bash
+sudo ufw allow 'Nginx Full'
+```
+4. **Since you're using AWS, let's check the security group settings:**
+   - Go to AWS EC2 Console
+   - Select your instance
+   - In the "Security" tab, click on the security group
+   - Click "Edit inbound rules"
+   - Add these rules if they don't exist:
+     - Type: HTTP, Port: 80, Source: 0.0.0.0/0
+     - Type: HTTPS, Port: 443, Source: 0.0.0.0/0
+5. **Check if Nginx is listening on all interfaces:**
+```bash
+sudo netstat -tulpn | grep nginx
+```
+6. **Try accessing your server in a web browser:**
+http://16.171.176.100
+
+
 ![nginx install](img/14.troubleshoot.png)
+
+
 
 3. **Check AWS Security Group Settings**
    - Go to AWS EC2 Console
@@ -508,7 +529,7 @@ After completing these steps, you should be able to access your Nginx welcome pa
 
 ![Nginx Welcome Page](img/14.nginx-works-without-security.png)
 
-In the next step, we would look more intor hands on project that involves the use of commands on linux system. working with Linux commands typically includes tasks such as 
+In the next project after this, we would look more intor hands on project that involves the use of commands on linux system. working with Linux commands typically includes tasks such as 
 - navigating the file system, 
 - managing files and directories and
 - manipulating permissions.
