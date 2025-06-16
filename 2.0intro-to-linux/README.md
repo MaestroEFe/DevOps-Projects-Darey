@@ -360,6 +360,7 @@ To install the `nginx` web server:
 sudo apt update
 sudo apt install nginx
 
+
 # For RHEL/CentOS 7
 sudo yum install epel-release
 sudo yum install nginx
@@ -367,6 +368,8 @@ sudo yum install nginx
 # For Fedora/RHEL 8+/CentOS 8+
 sudo dnf install nginx
 ```
+![nginx installation](img/14.nginx.png)
+This shows the nginx installation process. First nginx is checked to see if it is installed. If not, it is installed.
 
 #### Verifying Installation
 Check if the service is running:
@@ -381,6 +384,7 @@ sudo systemctl start nginx
 # Enable nginx to start on boot
 sudo systemctl enable nginx
 ```
+![nginx status](img/14.check-nginx-status.png)
 
 #### Updating Packages
 Keep your system up-to-date:
@@ -395,6 +399,7 @@ sudo apt upgrade
 # For RHEL-based systems
 sudo yum update    # or sudo dnf update
 ```
+![nginx update](img/10.apt-update.png)
 
 #### Removing Software
 To remove a package:
@@ -406,7 +411,7 @@ sudo apt remove package-name
 # For RHEL-based systems
 sudo yum remove package-name    # or sudo dnf remove
 ```
-
+![nginx remove](img/13.1apt-remove-tree.png)
 ### Package Management Best Practices
 
 1. **Regular Updates**
@@ -456,10 +461,54 @@ sudo apt install nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
+![nginx install](img/14.nginx-runnig.png)
 
 After installation, open a web browser and navigate to your server's IP address. You should see the default Nginx welcome page.
 
-In the next stepk we would look more intor hands on project that involves the use of commands on linux system. working with Linux commands typically includes tasks such as 
+![nginx install](img/14.refuses%20to%20connect.png)
+
+### Troubleshooting Nginx Connection Issues
+
+If you encounter a "refused to connect" error when trying to access your Nginx server, follow these steps to resolve the issue:
+
+1. **Check Nginx Status**
+   ```bash
+   sudo systemctl status nginx
+   ```
+
+2. **Enable UFW (Uncomplicated Firewall) and Allow Nginx**
+   ```bash
+   sudo ufw enable
+   sudo ufw allow 'Nginx Full'
+   sudo ufw status  # Verify the rules are applied
+   ```
+![nginx install](img/14.troubleshoot.png)
+
+3. **Check AWS Security Group Settings**
+   - Go to AWS EC2 Console
+   - Select your instance
+   - In the "Security" tab, click on the security group
+   - Click "Edit inbound rules"
+   - Ensure these rules exist:
+     - Type: HTTP, Port: 80, Source: 0.0.0.0/0
+     - (Optional) Type: HTTPS, Port: 443, Source: 0.0.0.0/0
+
+4. **Verify Nginx is Listening**
+   ```bash
+   sudo netstat -tulpn | grep nginx
+   ```
+   You should see Nginx listening on port 80 (0.0.0.0:80 or :::80)
+
+5. **Check Nginx Error Logs**
+   ```bash
+   sudo tail -f /var/log/nginx/error.log
+   ```
+
+After completing these steps, you should be able to access your Nginx welcome page by entering your server's public IP in a web browser.
+
+![Nginx Welcome Page](img/14.nginx-works-without-security.png)
+
+In the next step, we would look more intor hands on project that involves the use of commands on linux system. working with Linux commands typically includes tasks such as 
 - navigating the file system, 
 - managing files and directories and
 - manipulating permissions.
