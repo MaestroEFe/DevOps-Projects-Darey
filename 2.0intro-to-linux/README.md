@@ -1,3 +1,4 @@
+
 # Introduction to Linux
 
 In the dynamic landscape of technology, mastering the fundamentals is essential for anyone aspiring to excel in fields such as DevOps, Cloud Computing, Cybersecurity, Data Analytics, AI, Machine Learning, and QA Testing. This project is designed to provide a solid foundation in Linux, a crucial skillset for technology professionals. Understanding these technical fundamentals lays the groundwork for success in various tech-centered careers.

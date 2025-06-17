@@ -1,5 +1,14 @@
-# Linux Projects
-I am learning Linux to become a DevOps Engineer. Common commands are as below:
+# Mini Project - Basic Linux Commands
+
+## Linux commands Deep Dive
+
+**Now that you have a client terminal and and have access to our remote server, what next?**
+
+In this project, we will be learning the basic Linux commands and their usage.
+
+for the next coupe of preject we will be learning a lot about Linux commands, therefore, it,s tune to get our hands dirty with the commands.
+
+## What are Linux commands?
 
 ## Terminal commands:
 1. pwd (print working directory) : print working directory
