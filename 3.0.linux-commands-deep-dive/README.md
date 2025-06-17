@@ -15,7 +15,7 @@ Linux commands are executed by entering text in the terminal and pressing Enter.
 
 Linux commands are executed by entering text in the terminal and pressing Enter. These commands enables you to perfom a wide range of tasks, including installing packages, managing users, manipulating files and directories, configuring system settings, and more.
 
-The heneral syntax of a Linux command is as follows:
+The general syntax of a Linux command is as follows:
 
 ```bash
 command [option(s)/flag(s)/switch(es)] [argument(s)/parameter(s)]
@@ -52,7 +52,7 @@ A command may consits of options and parameters, but they are not always require
     ls --long
 ```
 
-![](img/1.0-remote-connection.gif)
+![](img/1.0.ls-cmd.png)
 
 **Parameters/Arguments** : A parameter or and argument provides specific information or data required by the command to execute the desired action. for example, if i want to create a new directory, (or folder), I will pass use the `mkdir` command. The parameter will be the name of the directory in which I will pass to the command. e.g `mkdir Photo` will create a Photo directory.
 
@@ -60,7 +60,7 @@ A command may consits of options and parameters, but they are not always require
 	mkdir Photo
 ```
 
-![](img/1.0-remote-connection.gif)
+![](img/2.0.mkdir.png)
 
 **Note:** *It's important to note that Linux commands are case sensitive, so you need to enter them exactly as they are spelled and formatted.*
 
@@ -97,21 +97,20 @@ Sometimes, you need supperuser privillages to create a folder in certain locatio
 ```bash
 	ssh <username>@<ip_address>
 ```
-![](img/1.0-remote-connection.gif)
 
 2. Try creating a folder in a restricted location. For example, let's try to create a folder named `Photo` in the `/root` directory, which is a restricted location for root user.
 
 ```bash
 	mkdir /root/Photo
 ```
-![](img/1.0-remote-connection.gif)
+![](img/3.0.sudo-error.png)
 
 3. You will get a permission denied error. This is because you don't have the necessary permissions to create a folder in the `/root` directory.
 
 ```bash
 	mkdir: cannot create directory '/root/Photo': Permission denied
 ```
-![](img/1.0-remote-connection.gif)
+![](img/3.0.sudo-error.png)
 
 This error occurs because regular users do not have the necessary permissions to create a folder in the `/root` directory.
 
@@ -120,16 +119,18 @@ This error occurs because regular users do not have the necessary permissions to
 ```bash
 	sudo mkdir /root/Photo
 ```
-![](img/1.0-remote-connection.gif)
+![](img/4.0.sudo-mkdir-root.png)
 
-Because you now included sudo in the command, it executed successfully and created a folder named `Photo` in the `/root` directory. in some cases, you may be prompted to enter your password. This is because sudo requires authentication before executing commands with elevated privileges.
+Because you now included sudo in the command, it executed successfully and created a folder named `Photo` in the `/root` directory. in some cases, like in ours, you will be prompted to enter your password as seen in the image. This is because sudo requires authentication before executing commands with elevated privileges.
 
-5. You can verify that the folder was created successfully by using the `ls` command.
+5. You can verify that the folder was created successfully by first signing in as root user, navigate to the root directory using `cd` command and then using the `ls` command.
 
 ```bash
-	ls /root
+	sudo su
+	cd /root
+	ls
 ```
-![](img/1.0-remote-connection.gif)
+![](img/4.1.sudo-mkdir-photo-in-root.png)
 
 **Note:** *You can also use the `sudo -i` command to switch to the root user and then create the folder without using sudo. Sudo -i is a command that switches to the root user and prompts for your password. This is a more secure way to create a folder in a restricted location. Also note that using sudo gives you significant power over your system, including the ability to delete crucial system files. So, it's important to use it with caution.*
 
@@ -141,60 +142,170 @@ The `pwd` command is used to print the current working directory. It is a simple
 ```bash
 	pwd
 ```
-![](img/1.0-remote-connection.gif)
+![](img/5.0.pwd.png)
 
 ### The Linux directory structure
 After learning about the use of sudo, it's crucial to understand how the linux filesystem is organized. This knowledge is fundamental when navigating througvh the sytem, managing files, and directories, and understanding the location and permissions of different types of files and directories with the system.
 The Linus directory structure is as follows:
 
 ```bash
-	/
-	├── bin
-	├── boot
-	├── dev
-	├── etc
-	├── home
-	├── lib
-	├── media
-	├── mnt
-	├── opt
-	├── proc
-	├── root
-	├── run
-	├── sbin
-	├── srv
-	├── sys
-	├── tmp
-	├── usr
-	└── var
+    ./
+    ├── bin -> usr/bin
+    ├── boot
+    ├── cdrom
+    ├── dev
+    ├── etc
+    ├── home
+    ├── lib -> usr/lib
+    ├── lib64 -> usr/lib64
+    ├── lost+found
+    ├── media
+    ├── mnt
+    ├── opt
+    ├── proc
+    ├── root
+    ├── run
+    ├── sbin -> usr/sbin
+    ├── snap
+    ├── srv
+    ├── swap.img
+    ├── sys
+    ├── tmp
+    ├── usr
+    └── var
 ```
 
-![](img/1.0-linux-directory-structure.gif)
+![](img/6.0.home-directory.png)
 
 #### The Root Directory("/")
 At the top of the Linux filesystem hierarchy is the root directory, denoted by a single forward slash ("/"). Unline windows, which uses diffent drives (e.g C:, D:, etc), Linux uses a single root directory to organize all files and directories/folders. Under `/`, you will find various directgories with specific purposes:
 
 - `bin`: Contains binary executable files for system commands and utilities.
 - `boot`: Contains files needed for system boot, such as the kernel and initrd.
-- `dev`: Represents device files, representing hardware devices.
-- `etc`: Stores configuration files for system services and applications.
+- `cdrom`: Contains files needed for system boot, such as the kernel and initrd.
+- `dev`: Contains device files for system devices.
+- `etc`: Contains configuration files for system services.
 - `home`: Contains user home directories.
-- `lib`: Stores library files, including shared libraries and kernel modules.
-- `media`: Mount point for removable media devices.
-- `mnt`: Mount point for temporary mount points.
-- `opt`: Optional add-on software packages.
-- `proc`: Virtual filesystem containing process and kernel information.
-- `root`: Home directory for the root user.
-- `run`: Runtime files and sockets.
-- `sbin`: System binaries for system administration tasks.
-- `srv`: Service data files.
-- `sys`: Virtual filesystem containing system information.
-- `tmp`: Temporary files.
-- `usr`: User files, including applications and shared libraries.
-- `var`: Variable data files, such as logs and user data.
+- `lib`: Contains library files for system libraries.
+- `media`: Contains media files for system media.
+- `mnt`: Contains mount points for system mounts.
+- `opt`: Contains optional files for system optional files.
+- `proc`: Contains process files for system process files.
+- `root`: Contains root files for system root files.
+- `run`: Contains run files for system run files.
+- `sbin`: Contains system binary executable files for system binary executable files.
+- `snap`: Contains snap files for system snap files.
+- `srv`: Contains server files for system server files.
+- `swap.img`: Contains swap files for system swap files.
+- `sys`: Contains system files for system system files.
+- `tmp`: Contains temporary files for system temporary files.
+- `usr`: Contains user files for system user files.
+- `var`: Contains variable files for system variable files.
 
 ##### The bin directory
-The `bin` directory contains binary executable files for system commands and utilities. These are the files that are used to perform various tasks on the system. For example, the `ls` command is used to list files and directories, and the `pwd` command is used to print the current working directory.
+The `bin` directory contains binary executable files for system commands and utilities. These are the files that are used to perform various tasks on the system. For example, the `ls` command is used to list files and directories, and the `pwd` command is used to print the current working directory. below is an image that show some of the binary executable files in the `bin` directory. they are aranged in alphabetical order.
+![](img/7.0.bin-directory.png)
+
+##### The boot directory
+The `boot` directory contains files needed for system boot, such as the kernel and initrd. These files are used to start the system and load the kernel and initrd. below is an image that show some of the files in the `boot` directory. The initrd (initial RAM disk) is a temporary root file system that is used to load the kernel and other necessary files during system boot. The kernel is the core of the Linux operating system, responsible for managing system resources and providing a platform for running applications. It serves as the middleground between the hardware and the user space. It is responsible for loading the necessary modules and drivers, and it also provides a virtual file system that is used to mount the root file system.
+
+    Here’s a layman-friendly rewrite with a real-world analogy:
+
+    Think of the Linux kernel as the manager in a large company. The hardware (like your computer’s memory, CPU, and hard drive) are the workers, and the user space (the programs and apps you use) are the customers. The manager (kernel) stands in the middle, making sure the workers and customers communicate smoothly.
+
+    Just like a manager assigns the right worker for each job, the kernel loads the necessary modules and drivers so your computer knows how to use things like your keyboard, mouse, or Wi-Fi. The kernel also sets up a “virtual office” (the virtual file system), where everyone can find and use the files they need, no matter where those files are actually stored.
+
+    In short, the kernel is the go-between that helps your programs use your computer’s hardware safely and efficiently, just like a good manager keeps a company running smoothly!
+
+![](img/7.1.boot-directory.png)
+
+##### The cdrom directory
+
+###### What is the difference between the `/boot` and `/cdrom` directories?
+
+| Directory | Purpose                          | Typical Contents         |
+|-----------|----------------------------------|-------------------------|
+| `/boot`   | Boot system files                | Kernel, initrd, GRUB    |
+| `/cdrom`  | Mount point for CD/DVD media     | Files from inserted disc |
+
+---
+
+**/boot Directory**
+
+- Contains essential files needed to boot (start) your Linux operating system.
+- Typical files include the Linux kernel (`vmlinuz`), initial RAM disk (`initrd` or `initramfs`), and bootloader files (like GRUB).
+- *Real-World Analogy*: Think of `/boot` as the “ignition system” of a car—it has everything needed to start the engine (your OS).
+
+---
+
+**/cdrom Directory**
+
+- Serves as a mount point for CD-ROMs or DVD drives.
+- Usually empty unless you insert a CD/DVD; then, the files from the disc appear here.
+- *Real-World Analogy*: Think of `/cdrom` as the “CD player slot” in a car—when you insert a CD, you can access its contents here, but when it’s empty, there’s nothing to see.
+
+---
+
+I will give a little bit details for the rest of the content of the directory and as we go along the project, we will learn more about each of them further.
+
+**The dev directory**
+The `dev` directory contains special device files that represent hardware components attached to your system, such as hard drives, USB devices, and terminals. These files allow the operating system and users to interact with hardware as if they were ordinary files. For example, `/dev/sda` might represent your main hard drive, and [/dev/tty](cci:7://file:///dev/tty:0:0-0:0) represents terminal devices.
+
+**The etc directory**
+The `etc` directory stores system-wide configuration files and settings for the operating system and installed applications. For example, [/etc/passwd](cci:7://file:///etc/passwd:0:0-0:0) contains user account information, and [/etc/hostname](cci:7://file:///etc/hostname:0:0-0:0) stores the system's hostname. This is where you go to change system behavior.
+
+**The home directory**
+The `home` directory contains personal folders for each user on the system. For example, `/home/efe` would be your personal space, where your documents, downloads, and personal settings are stored. Each user has their own subdirectory here.
+
+**The lib and lib64 directories**
+The `lib` directory (and `lib64` for 64-bit libraries) contain essential shared libraries needed by programs in `/bin` and `/sbin`. Libraries are like helper code that programs use to perform common tasks. For example, when you run a command, it may use a library from `/lib` to handle networking or file access.
+
+**The lost+found directory**
+The `lost+found` directory is used by the file system to recover files that may have become corrupted or lost after a crash or improper shutdown. If the system finds orphaned files during a disk check, it puts them here for possible recovery.
+
+**The media directory**
+The `media` directory is used as a mount point for removable media, such as USB drives, SD cards, or DVDs. When you plug in a USB stick, it usually appears as a folder inside `/media`.
+
+**The mnt directory**
+The `mnt` directory is a generic mount point where system administrators can temporarily mount filesystems. For example, if you want to access the contents of another hard drive or a network share, you might mount it under `/mnt`.
+
+**The opt directory**
+The `opt` directory is used for installing optional or third-party software packages. Applications that are not part of the default system installation, such as commercial software, may be installed here.
+
+**The proc directory**
+The `proc` directory is a virtual filesystem that provides information about running processes and the kernel. For example, `/proc/cpuinfo` shows details about your CPU, and `/proc/<pid>` contains information about each running process.
+
+**The root directory (user)**
+The `root` directory is the home folder for the root (system administrator) user. Unlike other users, root’s home is `/root` instead of being under `/home`.
+
+**The run directory**
+The `run` directory contains runtime data for processes and services that started since the last boot. It holds things like process IDs (PIDs) and system information needed while the system is running.
+
+**The sbin directory**
+The `sbin` directory contains essential system binaries (programs) that are mainly used for system administration. These commands are usually intended for the root user, such as tools for managing disks and filesystems.
+
+**The snap directory**
+The `snap` directory contains data for applications installed via the Snap package manager. Snap is a modern way to install and manage software on Linux.
+
+**The srv directory**
+The `srv` directory holds data for services provided by the system, such as web or FTP servers. For example, files served by a web server might be stored here.
+
+**The swap.img file**
+The `swap.img` file is used as virtual memory when your system runs out of physical RAM. It acts as an overflow space to keep your system running smoothly.
+
+**The sys directory**
+The `sys` directory is another virtual filesystem that exposes information and configuration options for the kernel and connected devices. It is mainly used by the system and advanced users for hardware management.
+
+**The tmp directory**
+The `tmp` directory is used for temporary files created by the system and applications. Its contents are usually deleted when the system reboots.
+
+**The usr directory**
+The `usr` directory contains use    r programs, libraries, documentation, and other files not needed to boot or repair the system. For example, most user commands like `cp` and `mv` live in `/usr/bin`.
+
+**The var directory**
+The `var` directory contains variable data files such as logs, databases, mail spools, and print queues. For example, system logs are typically stored in `/var/log`.
+
+
 
 
 
