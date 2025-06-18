@@ -1,6 +1,7 @@
 # Mini Project - Basic Linux Commands
 
 ## Linux commands Deep Dive
+Following the previous decumentation on introduction to Linux, we will be delving deeper into Linux commands and their usage.
 
 **Now that you have a client terminal and and have access to our remote server, what next?**
 
@@ -83,7 +84,7 @@ When you precede a command with sudo, Linux will prompt you for your password be
 	sudo <command>
 ```
 
-### Example
+**Example**
 ```bash
 	sudo apt update
 ```
@@ -145,7 +146,7 @@ The `pwd` command is used to print the current working directory. It is a simple
 ![](img/5.0.pwd.png)
 
 ### The Linux directory structure
-After learning about the use of sudo, it's crucial to understand how the linux filesystem is organized. This knowledge is fundamental when navigating througvh the sytem, managing files, and directories, and understanding the location and permissions of different types of files and directories with the system.
+After learning about the use of sudo, it's crucial to understand how the linux filesystem is organized. This knowledge is fundamental when navigating througuh the linux filesystem, managing files, and directories, and understanding the location and permissions of different types of files and directories with the system.
 The Linus directory structure is as follows:
 
 ```bash
@@ -175,7 +176,36 @@ The Linus directory structure is as follows:
     └── var
 ```
 
-![](img/6.0.home-directory.png)
+![](img/6.0.root-directory.png)
+
+The root directory can be access by runnig the cd / command.
+
+```bash
+	cd /
+```
+
+And the list of files in the directory can be displayed using the ls or ls -l command.
+
+```bash
+	ls
+```
+
+![](img/6.1.root-directory-long.png)
+
+You can see, that when you run the sudo cd / command, an error is displayed. This is because the cd command is a shell built in command and it doesn't require sudo to run. using the cd / command takes us to the root directory where we see all the contents of the root directory.
+
+## Navigating the Linux filesystem
+You navigate the filesystem simply by using the cd command as shown above. 
+
+```bash
+	cd <directory_name>
+```
+example:
+```bash
+	cd /usr
+```
+![](img/6.2.cd-usr.png)
+*Notice the `usr` has a `/` prefix. On Linux, navigation starts from the root directory, which is denoted by a single forward slash ("/"). The root directory is the top of the filesystem hierarchy and is the starting point for all file and directory navigation. The `usr` directory is a subdirectory of the root directory and is used to store user files and directories.*
 
 #### The Root Directory("/")
 At the top of the Linux filesystem hierarchy is the root directory, denoted by a single forward slash ("/"). Unline windows, which uses diffent drives (e.g C:, D:, etc), Linux uses a single root directory to organize all files and directories/folders. Under `/`, you will find various directgories with specific purposes:
@@ -246,7 +276,7 @@ The `boot` directory contains files needed for system boot, such as the kernel a
 
 ---
 
-I will give a little bit details for the rest of the content of the directory and as we go along the project, we will learn more about each of them further.
+We will look at summary of the rest of the content of the root directory or root filesystem (`/`) and as we go along with our DevOps journey on other projects, we will learn more about each of them further.
 
 **The dev directory**
 The `dev` directory contains special device files that represent hardware components attached to your system, such as hard drives, USB devices, and terminals. These files allow the operating system and users to interact with hardware as if they were ordinary files. For example, `/dev/sda` might represent your main hard drive, and [/dev/tty](cci:7://file:///dev/tty:0:0-0:0) represents terminal devices.
@@ -304,6 +334,7 @@ The `usr` directory contains use    r programs, libraries, documentation, and ot
 
 **The var directory**
 The `var` directory contains variable data files such as logs, databases, mail spools, and print queues. For example, system logs are typically stored in `/var/log`.
+
 
 
 
