@@ -145,7 +145,7 @@ The `pwd` command is used to print the current working directory. It is a simple
 ```
 ![](img/5.0.pwd.png)
 
-### The Linux directory structure
+#### The Linux directory structure
 After learning about the use of sudo, it's crucial to understand how the linux filesystem is organized. This knowledge is fundamental when navigating througuh the linux filesystem, managing files, and directories, and understanding the location and permissions of different types of files and directories with the system.
 The Linus directory structure is as follows:
 
@@ -194,7 +194,7 @@ And the list of files in the directory can be displayed using the ls or ls -l co
 
 You can see, that when you run the sudo cd / command, an error is displayed. This is because the cd command is a shell built in command and it doesn't require sudo to run. using the cd / command takes us to the root directory where we see all the contents of the root directory.
 
-## Navigating the Linux filesystem
+## Navigating the Linux filesystem, the cd command
 You navigate the filesystem simply by using the cd command as shown above. 
 
 ```bash
@@ -207,7 +207,7 @@ example:
 ![](img/6.2.cd-usr.png)
 *Notice the `usr` has a `/` prefix. On Linux, navigation starts from the root directory, which is denoted by a single forward slash ("/"). The root directory is the top of the filesystem hierarchy and is the starting point for all file and directory navigation. The `usr` directory is a subdirectory of the root directory and is used to store user files and directories.*
 
-#### The Root Directory("/")
+**The Root Directory("/")**
 At the top of the Linux filesystem hierarchy is the root directory, denoted by a single forward slash ("/"). Unline windows, which uses diffent drives (e.g C:, D:, etc), Linux uses a single root directory to organize all files and directories/folders. Under `/`, you will find various directgories with specific purposes:
 
 - `bin`: Contains binary executable files for system commands and utilities.
@@ -232,11 +232,11 @@ At the top of the Linux filesystem hierarchy is the root directory, denoted by a
 - `usr`: Contains user files for system user files.
 - `var`: Contains variable files for system variable files.
 
-##### The bin directory
+**The bin directory**
 The `bin` directory contains binary executable files for system commands and utilities. These are the files that are used to perform various tasks on the system. For example, the `ls` command is used to list files and directories, and the `pwd` command is used to print the current working directory. below is an image that show some of the binary executable files in the `bin` directory. they are aranged in alphabetical order.
 ![](img/7.0.bin-directory.png)
 
-##### The boot directory
+**The boot directory**
 The `boot` directory contains files needed for system boot, such as the kernel and initrd. These files are used to start the system and load the kernel and initrd. below is an image that show some of the files in the `boot` directory. The initrd (initial RAM disk) is a temporary root file system that is used to load the kernel and other necessary files during system boot. The kernel is the core of the Linux operating system, responsible for managing system resources and providing a platform for running applications. It serves as the middleground between the hardware and the user space. It is responsible for loading the necessary modules and drivers, and it also provides a virtual file system that is used to mount the root file system.
 
     Here’s a layman-friendly rewrite with a real-world analogy:
@@ -249,9 +249,9 @@ The `boot` directory contains files needed for system boot, such as the kernel a
 
 ![](img/7.1.boot-directory.png)
 
-##### The cdrom directory
+**The cdrom directory**
 
-###### What is the difference between the `/boot` and `/cdrom` directories?
+**What is the difference between the `/boot` and `/cdrom` directories?**
 
 | Directory | Purpose                          | Typical Contents         |
 |-----------|----------------------------------|-------------------------|
@@ -336,22 +336,50 @@ The `usr` directory contains use    r programs, libraries, documentation, and ot
 The `var` directory contains variable data files such as logs, databases, mail spools, and print queues. For example, system logs are typically stored in `/var/log`.
 
 
+***Quick Navigation Exercises***
+- Create a directory called photo in the `/usr` directory.
+- navigate into the photo directory.
+- create 3 more random directories inside the photo directory.
+- show the newly created directories on the terminal.
+- Navigate into them
+- Show the full path where you are currently on the screen
 
+***Solution***
+```bash
+	mkdir /usr/photo
+	cd /usr/photo
+	mkdir dave-photos eve-photos john-photos
+	ls
+	cd dave-photos
+	pwd
+```
+![](img/7.2.excercise.png)
 
+As seen in the image, We tried to create a photo directory in `/usr`, but got permission denied because we needed admin rights. So we used `sudo` to create it. Then we tried to create three photo folders (dave-photos, eve-photos, john-photos) inside, but got permission denied again because the directory was owned by root. We used `sudo` again to create those folders successfully. Finally, we navigated into the eve-photos directory and checked our current location with `pwd`.
 
+## ls command
+The `ls` command lists files and directories. Running it without a flag or parameter will show the current working directory's contents.
 
+To see other directories' contents, type ls followed by the the desired path. for examole, to view files in the Documents folder, enter:
 
+```bash
+	ls /home/efe/Documents/
+```
 
+here are some options that can be used with the ls command:
 
+```bash
+	ls -R (list all files and directories recursively)
+    ls -lh (list in human-readable format)
+    ls -l (list in long format)
+	ls -a (list all files including hidden files)
+    ls -la (list all files including hidden files in long format)
+    ls -la /home/efe/Documents/ (list all files including hidden files in long format in the Documents folder)
+```
 
+![](img/8.0.ls.png)
 
-
-## Terminal commands:
-1. pwd (print working directory) : print working directory
-    ```bash
-    	pwd
-    ```
-2. ls (list) : list files and folders/directories in a directory
+ls (list) : list files and folders/directories in a directory
     ```bash
     	ls
         #Major flags/arguments/switches/options:
@@ -417,42 +445,100 @@ The `var` directory contains variable data files such as logs, databases, mail s
     Parameters: Configuration values
     ```
 
-3. touch (touch) : create an empty file. eg
+
+
+## More Terminal commands:
+1. pwd (print working directory) : print working directory
+    ```bash
+    	pwd
+    ```
+2. touch (touch) : create an empty file. eg
     ```bash
      	touch README.md
+        touch file1.txt file2.txt file3.txt (create multiple files)
+        touch file{1..10}.txt (create multiple files with a range)
     ```
-4. cat (concatenate) : display the contents of a file. eg
+3. cat (concatenate) : display the contents of a file. eg
     ```bash
     cat README.md
+    cat file1.txt file2.txt file3.txt (display multiple files)
+    cat file{1..10}.txt (display multiple files with a range)
     ```
-5. clear (clear) or CTRL+L: clear the terminal screen
-    ```bash
+4. clear (clear) or CTRL+L: clear the terminal screen
+    ```bash 
     clear
+    CTRL+L
     ```
-6. tail (tail) : display the last 10 lines of a file. eg
+5. tail (tail) : display the last 10 lines of a file. eg
     ```bash
     tail README.md
+    tail -n 20 README.md (display last 20 lines)
     ```
-7. head (head) : display the first 10 lines of a file. eg
+6. head (head) : display the first 10 lines of a file. eg
     ```bash
     head README.md
+    head -n 20 README.md (display first 20 lines)
     ```
-8. which (which) : display the path of a command. eg
+7. which (which) : display the path of a command. eg
     ```bash
     which ls
+    which which
     ``` 
-9. info (info) : display information about a command. eg
+8. info (info) : display information about a command. eg
     ```bash
     info which
+    info info
     ```
-10. man (manual) : display manual pages for a command. eg
+9. man (manual) : display manual pages for a command. eg
     ```bash
     man ls
+    man man
     ```
-11. mkdir (make directory) : create a directory. eg
+10. mkdir (make directory) : create a directory. eg
     ```bash
     mkdir mydir
     mkdir -p mydir/mydir2
     mkdir -p mydir/mydir3/mydir4
+    ```
+11. cp (copy) : copy a file or directory. eg
+    ```bash
+    cp README.md README2.md (copy file)
+    cp -r mydir mydir2 (copy directory)
+    cp -R mydir mydir2 (copy directory recursively)
+    ```
+12. mv (move) : move a file or directory. eg
+    ```bash
+    mv README.md README2.md (move file)
+    mv mydir mydir2 (move directory)
+    ```
+13. rm (remove) : remove a file or directory. eg
+    ```bash
+    rm README.md (remove file)
+    rm -r mydir (remove directory)
+    ```
+14. rmdir (remove directory) : remove a directory. eg
+    ```bash
+    rmdir mydir
+    ```
+15. ln (link) : create a link to a file or directory. eg
+    ```bash
+    ln README.md README2.md (create link)
+    ln -s README.md README2.md (create symbolic link)
+    ```
+16. find (find) : find a file or directory. eg
+    ```bash
+    find / -name README.md (find file)
+    find / -name mydir (find directory)
+    find / -name "*.txt" (find files with .txt extension)
+    ```
+17. grep (grep) : search for a string in a file. eg
+    ```bash
+    grep "hello" README.md (search for string in file)
+    grep -r "hello" / (search for string recursively)
+    grep -i "hello" README.md (search for string case-insensitive)
+    grep -v "hello" README.md (search for string not containing the string)
+    grep -c "hello" README.md (count number of occurrences)
+    grep -l "hello" README.md (list files containing the string)
+    etc
     ```
     
