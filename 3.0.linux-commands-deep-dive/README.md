@@ -353,8 +353,8 @@ The `var` directory contains variable data files such as logs, databases, mail s
 	cd dave-photos
 	pwd
 ```
+![](img/7.3excersise2.png)
 ![](img/7.2.excercise.png)
-
 As seen in the image, We tried to create a photo directory in `/usr`, but got permission denied because we needed admin rights. So we used `sudo` to create it. Then we tried to create three photo folders (dave-photos, eve-photos, john-photos) inside, but got permission denied again because the directory was owned by root. We used `sudo` again to create those folders successfully. Finally, we navigated into the eve-photos directory and checked our current location with `pwd`.
 
 ## ls command
