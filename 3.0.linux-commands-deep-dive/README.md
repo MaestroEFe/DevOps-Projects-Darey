@@ -497,8 +497,8 @@ ls (list) : list files and folders/directories in a directory
 10. mkdir (make directory) : create a directory. eg
     ```bash
     mkdir mydir
-    mkdir -p mydir/mydir2
-    mkdir -p mydir/mydir3/mydir4
+    mkdir -p mydir/mydir2 #create multiple directories at once
+    mkdir -p mydir/mydir3/mydir4 #create multiple directories at once
     ```
 11. cp (copy) : copy a file or directory. eg
     ```bash
@@ -531,7 +531,7 @@ ls (list) : list files and folders/directories in a directory
     find / -name mydir (find directory)
     find / -name "*.txt" (find files with .txt extension)
     ```
-17. grep (grep) : search for a string in a file. eg
+17. grep (global regular expression print) : search for a string in a file. eg
     ```bash
     grep "hello" README.md (search for string in file)
     grep -r "hello" / (search for string recursively)
@@ -541,4 +541,68 @@ ls (list) : list files and folders/directories in a directory
     grep -l "hello" README.md (list files containing the string)
     etc
     ```
-    
+18. apt (application package tool) : add, remove, and update packages. eg
+    ```bash
+    apt update (update packages)
+    apt upgrade (upgrade packages)
+    apt install <package_name> (install package)
+    apt remove <package_name> (remove package)
+    apt autoremove (remove unused packages)
+    apt clean (clean package cache)
+    apt search <package_name> (search for package)
+    apt show <package_name> (show package information)
+    apt list <package_name> (list package information)
+    apt -get install <package_name> (install package) #same as apt install
+
+
+19. dpkg (debian package) : install, remove, and manage packages. eg
+    ```bash
+    dpkg -l (list packages)
+    dpkg -s <package_name> (show package information)
+    dpkg -r <package_name> (remove package)
+    dpkg -P <package_name> (purge package)
+    dpkg -i <package_name> (install package)
+    dpkg -I <package_name> (show package information)
+    dpkg -l | grep <package_name> (search for package)
+
+
+
+
+### Top 20 Linux Terminal Shortcuts
+
+#### Navigation
+1. `Ctrl + A` - Move cursor to start of line
+2. `Ctrl + E` - Move cursor to end of line
+3. `Alt + B` - Move cursor back one word
+4. `Alt + F` - Move cursor forward one word
+5. `Ctrl + XX` - Toggle between current and start of line
+
+#### Command Control
+1. `Ctrl + C` - Terminate current command
+2. `Ctrl + Z` - Suspend current process (resume with fg or bg)
+3. `Ctrl + D` - Exit shell (or end of file)
+4. `Ctrl + L` - Clear screen (same as clear command)
+5. `Ctrl + R` - Search command history
+
+#### Text Editing
+1. `Ctrl + U` - Cut text before cursor
+2. `Ctrl + K` - Cut text after cursor
+3. `Ctrl + W` - Cut word before cursor
+4. `Ctrl + Y` - Paste cut text
+5. `Ctrl + _` - Undo last change
+
+#### Process Management
+1. `Ctrl + Z` - Suspend current process
+2. `bg` - Send process to background
+3. `fg` - Bring process to foreground
+4. `jobs` - List background jobs
+5. `!!` - Repeat last command
+
+#### Bonus Tips
+1. `Ctrl + D` - Close terminal
+2. `Tab` - Auto-complete
+3. `Up/Down` - Navigate command history
+4. `Ctrl + G` - Cancel current command
+5. `Ctrl + T` - Swap last two characters
+
+These shortcuts work in most Linux shells, including bash (the default in Ubuntu). They can significantly speed up your command-line work once you get used to them!
