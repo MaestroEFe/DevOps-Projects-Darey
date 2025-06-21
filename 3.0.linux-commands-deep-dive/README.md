@@ -210,27 +210,27 @@ example:
 **The Root Directory("/")**
 At the top of the Linux filesystem hierarchy is the root directory, denoted by a single forward slash ("/"). Unline windows, which uses diffent drives (e.g C:, D:, etc), Linux uses a single root directory to organize all files and directories/folders. Under `/`, you will find various directgories with specific purposes:
 
-- `bin`: Contains binary executable files for system commands and utilities.
-- `boot`: Contains files needed for system boot, such as the kernel and initrd.
-- `cdrom`: Contains files needed for system boot, such as the kernel and initrd.
-- `dev`: Contains device files for system devices.
-- `etc`: Contains configuration files for system services.
-- `home`: Contains user home directories.
-- `lib`: Contains library files for system libraries.
-- `media`: Contains media files for system media.
-- `mnt`: Contains mount points for system mounts.
-- `opt`: Contains optional files for system optional files.
-- `proc`: Contains process files for system process files.
-- `root`: Contains root files for system root files.
-- `run`: Contains run files for system run files.
-- `sbin`: Contains system binary executable files for system binary executable files.
-- `snap`: Contains snap files for system snap files.
-- `srv`: Contains server files for system server files.
-- `swap.img`: Contains swap files for system swap files.
-- `sys`: Contains system files for system system files.
-- `tmp`: Contains temporary files for system temporary files.
-- `usr`: Contains user files for system user files.
-- `var`: Contains variable files for system variable files.
+- `bin` (binary): Contains binary executable files for system commands and utilities.
+- `boot` (boot): Contains files needed for system boot, such as the kernel and initrd.
+- `cdrom` (cdrom): Contains files needed for system boot, such as the kernel and initrd.
+- `dev` (device): Contains device files for system devices.
+- `etc` (etcetera): Contains configuration files for system services.
+- `home` (home): Contains user home directories.
+- `lib` (library): Contains library files for system libraries.
+- `media` (media): Contains media files for system media.
+- `mnt` (mount): Contains mount points for system mounts.
+- `opt` (optional): Contains optional files for system optional files.
+- `proc` (process): Contains process files for system process files.
+- `root` (root): Contains root files for system root files.
+- `run` (run): Contains run files for system run files.
+- `sbin` (system binary): Contains system binary executable files for system binary executable files.
+- `snap` (snap): Contains snap files for system snap files.
+- `srv` (server): Contains server files for system server files.
+- `swap.img` (swap): Contains swap files for system swap files.
+- `sys` (system): Contains system files for system system files.
+- `tmp` (temporary): Contains temporary files for system temporary files.
+- `usr` (user): Contains user files for system user files.
+- `var` (variable): Contains variable files for system variable files.
 
 **The bin directory**
 The `bin` directory contains binary executable files for system commands and utilities. These are the files that are used to perform various tasks on the system. For example, the `ls` command is used to list files and directories, and the `pwd` command is used to print the current working directory. below is an image that show some of the binary executable files in the `bin` directory. they are aranged in alphabetical order.
@@ -288,7 +288,7 @@ The `etc` directory stores system-wide configuration files and settings for the 
 The `home` directory contains personal folders for each user on the system. For example, `/home/efe` would be your personal space, where your documents, downloads, and personal settings are stored. Each user has their own subdirectory here.
 
 **The lib and lib64 directories**
-The `lib` directory (and `lib64` for 64-bit libraries) contain essential shared libraries needed by programs in `/bin` and `/sbin`. Libraries are like helper code that programs use to perform common tasks. For example, when you run a command, it may use a library from `/lib` to handle networking or file access.
+The `lib` directory (and `lib64` for 64-bit libraries) contain essential shared libraries needed by programs in `/bin` and `/sbin`. Libraries are like helper code that programs use to perform common tasks. For example, when you run a command, it may use a library from `/lib` to handle networking or file access. The libraries are also considered as **dependencies** or **modules** that the kernel uses to perform its functions.
 
 **The lost+found directory**
 The `lost+found` directory is used by the file system to recover files that may have become corrupted or lost after a crash or improper shutdown. If the system finds orphaned files during a disk check, it puts them here for possible recovery.
@@ -375,6 +375,7 @@ here are some options that can be used with the ls command:
 	ls -a (list all files including hidden files)
     ls -la (list all files including hidden files in long format)
     ls -la /home/efe/Documents/ (list all files including hidden files in long format in the Documents folder)
+    ls -i (list file inodes)
 ```
 
 ![](img/8.0.ls.png)
@@ -554,8 +555,33 @@ ls (list) : list files and folders/directories in a directory
     apt list <package_name> (list package information)
     apt -get install <package_name> (install package) #same as apt install
 
+19. df (disk free) : display disk space usage. eg
+    ```bash
+    df
+    df -h (human readable)
+    df -H (human readable)
+    df -T (show file system type)
+    df -T -h (show file system type and human readable)
+    df -i (show inode usage)
+    df -i -h (show inode usage and human readable)
+    df -i -h -T (show inode usage and human readable and file system type)
+    ```
 
-19. dpkg (debian package) : install, remove, and manage packages. eg
+20. du (disk usage) : display disk space usage of a directory. eg
+    ```bash
+    du
+    du -h (human readable)
+    du -H (human readable)
+    ```
+
+21. free (free memory) : display free memory. eg
+    ```bash
+    free
+    free -h (human readable)
+    free -H (human readable)
+    ```
+
+22. dpkg (debian package) : install, remove, and manage packages. eg
     ```bash
     dpkg -l (list packages)
     dpkg -s <package_name> (show package information)
@@ -565,6 +591,33 @@ ls (list) : list files and folders/directories in a directory
     dpkg -I <package_name> (show package information)
     dpkg -l | grep <package_name> (search for package)
 
+23. stat (status) : display file status. eg
+    ```bash
+    stat <file_name>
+    stat -c %a <file_name> (display file permissions)
+    stat -c %U <file_name> (display file owner)
+    stat -c %G <file_name> (display file group)
+    stat -c %s <file_name> (display file size)
+    stat -c %y <file_name> (display file modification time)
+    stat -c %z <file_name> (display file access time)
+    ```
+
+24. chmod (change mode) : change file permissions. eg
+    ```bash
+    chmod <permission> <file_name>
+    ```
+25. chown (change owner) : change file owner. eg
+    ```bash
+    chown <owner> <file_name>
+    ```
+26. chgrp (change group) : change file group. eg
+    ```bash
+    chgrp <group> <file_name>
+    ```
+27. ln (link) : create a link to a file or directory. eg
+    ```bash
+    ln <file_name> <link_name>
+    ```
 
 
 
