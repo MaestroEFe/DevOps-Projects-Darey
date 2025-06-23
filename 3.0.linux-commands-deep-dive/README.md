@@ -640,6 +640,7 @@ ls (list) : list files and folders/directories in a directory
     apt list --all-versions (list all versions of packages)
     apt list --installed | grep <package_name> (search for package)
     apt-mark showmanual (list manually installed packages)
+    apt-list --manual -installed (list manually installed packages with more details)
     apt-mark showauto (list automatically installed packages)
     apt-mark hold <package_name> (hold package)
     apt-mark unhold <package_name> (unhold package)
