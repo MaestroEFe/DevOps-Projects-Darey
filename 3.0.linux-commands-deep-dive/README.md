@@ -619,6 +619,33 @@ ls (list) : list files and folders/directories in a directory
     ln <file_name> <link_name>
     ```
 
+28. ps (process status) : display running processes. eg
+    ```bash
+    ps
+    ps -aux (display all processes)
+    ps -ef (display all processes in full format)
+    ps -l (display processes in long format)
+    ps -p <pid> (display process with specific pid)
+    ps -o <format> (display processes in specific format)
+    ```
+29. top (top) : display running processes in real-time. eg
+    ```bash
+    top
+    htop (an improved version of top)
+    ``` 
+30. apt-list (list packages) : list installed packages. eg
+    ```bash
+    apt list --installed (list installed packages)
+    apt list --upgradable (list upgradable packages)
+    apt list --all-versions (list all versions of packages)
+    apt list --installed | grep <package_name> (search for package)
+    apt-mark showmanual (list manually installed packages)
+    apt-mark showauto (list automatically installed packages)
+    apt-mark hold <package_name> (hold package)
+    apt-mark unhold <package_name> (unhold package)
+    apt-mark auto <package_name> (mark package as automatically installed)
+    apt-mark manual <package_name> (mark package as manually installed)
+    ```
 
 
 ### Top 20 Linux Terminal Shortcuts
