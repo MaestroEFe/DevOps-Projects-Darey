@@ -190,31 +190,35 @@ ls -latr
 
 ![](img/5.0.chmod777.png)
 
-Now Nootice the dash (-) in the first position represents the file type and noite a user class. It indicates that the entry is a regular file.
+Now Notice the dash (-) in the first position represents the file type and note a user class. It indicates that the entry is a regular file.
+
 
 **Changing mode for just user:**
 
+_Note: that you can use negative permissions to remove permissions as well just as the + sign is used to add permissions_
+
 ```bash
 chmod u+rw note.txt
+chmod u-rw note.txt
 ```
-
-![](img/6.0.chmod-u-rw.png)
 
 **Changing mode for just group:**
 
 ```bash
 chmod g+x note.txt
-```
-
-![](img/6.1.chmod-g-x.png)      
+chmod g-rw note.txt
+```    
 
 **Changing mode for just others:**
 
 ```bash
 chmod o+r-x note.txt
+chmod o-rw note.txt
 ```
 
-![](img/6.2.chmod-o-x.png)
+![](img/6.1chmod-u-g.png)
+
+_This image changes of permission with + and - sign are possible for user, group and others_
 
 
 
@@ -265,11 +269,11 @@ To switch to the root user, simply run
 sudo -i
 ```
 
-![](img/8.0.sudo.png)
+![](img/8.1.sudo-i.png)
 
 you can type `exit` to exit the root user.
 
-![](img/8.1.exit.png)
+![](img/8.11.exit-superuser.png)
 
 ## User Management on Linux
 
@@ -277,30 +281,32 @@ As a DevOps engineer, you are also going to be doing a system administration whi
 
 ### Create User (useradd)
 
-To create a new user, you can use the `useradd` command. Assuming the name of the user to be `joe`. rund the command below:
+To create a new user, you can use the `useradd` command. Assuming the name of the user to be `joe`. run the command below:
 
 ```bash
 sudo useradd joe
+sudo useradd -m joe # where m is short for create-home
+sudo useradd --create-home john
 ```
 
 ![](img/9.0.useradd.png)
 
-Running this command will prot you to enter some additional information about the user, such as their full name, and contact informtion. Once provided, the user account will be created and a home directory will be automatically created for the user
+Running this command will prompt you to enter some additional information about the user, such as their full name, and contact informtion. Once provided, the user account will be created and a home directory will be automatically created for the user
 
-![](img/9.0.useradd.png)
+![](img/9.1.useradd-home.png)
 
 To check if the user has been created, run the command below:
 
 ```bash
-sudo useradd joe
+sudo useradd -m joe
 ```
 
-![](img/9.1.useradd.png)
+![](img/9.0.useradd.png)
 
 
 The home directory for the user `joe` will be created in the `/home` directory and is seen as `/home/joe`. The home directory is a directory that contains the user's personal files and settings. 
 
-![](img/9.2.useradd.png)
+![](img/9.2.useradd-home.png)
 
 ### Grant Administartive Privileges (usermod)
 
@@ -310,7 +316,7 @@ By default, newly created user accounts do not have administrative privileges. T
 sudo usermod -aG sudo joe
 ```
 
-![](img/10.0.usermod.png)
+![](img/9.2.usermod.png)
 
 - `-aG` : append the user to the group. It is the flag used to add the user to the group
     - `-a` : stands for append and is used to add the user to the specidfic group(s) without removing them from other group they may already belong to.
@@ -332,10 +338,10 @@ sudo usermod -aG sudo joe
 To remove a user, you can use the `userdel` command. Assuming the name of the user to be `joe`. rund the command below:
 
 ```bash
-sudo userdel joe
+sudo userdel -r joe # where r is short for remove
 ```
 
-![](img/11.0.userdel.png)
+![](img/9.2.usermod.png)
 
 
 ### Switch User (su)
@@ -346,7 +352,7 @@ To switch to a different user, you can use the `su` command. Assuming the name o
 su joe
 ```
 
-![](img/12.0.su.png)
+![](img/10su.png)
 
 
 ### Modify User (usermod)
@@ -359,7 +365,7 @@ To change the password of a user, you can use the `passwd` command. Assuming the
 sudo passwd joe
 ```
 
-![](img/13.0.passwd.png)
+![](img/10su.png)
 
 You will be pormted to enter and confirm the new password for the user.
 
@@ -373,20 +379,24 @@ You will be pormted to enter and confirm the new password for the user.
 To delete a user, you can use the `userdel` command. Assuming the name of the user to be `joe`. rund the command below:
 
 ```bash
-sudo userdel joe
+sudo userdel -r joe # where r is short for remove
 ```
 
-![](img/14.0.userdel.png)
+![](img/9.3.userdel.png)
 
 ### Createing Group (groupadd)
 
 To create a new group, you can use the `groupadd` command. Assuming the name of the group to be `developers`. rund the command below:
 
 ```bash
-sudo groupadd developers
+sudo groupadd - developers
+
+getent group developers
 ```
 
-![](img/14.0.groupadd.png)
+![](img/11.10.groupadd.png)
+
+Use `getent group developers` to confirm the createion of the group.
 
 **Adding Users to the Group (usermod)**
 
@@ -395,8 +405,6 @@ To add a user to a group, you can use the `usermod` command. Assuming the name o
 ```bash
 sudo usermod -aG developers joe
 ```
-
-![](img/15.0.usermod.png)
 
 - The `-aG` option is used to add the user to the group without removing them from other group they may already belong to.
 
@@ -408,7 +416,7 @@ To verify the group membership of a user, you can use the `id` command. Assuming
 id joe
 ```
 
-![](img/16.0.id.png)
+![](img/12.usermod-aG.png)
 
 This command displays informtaion about the user `joe`, including the groups they belong to, such as developers.
 
@@ -420,18 +428,17 @@ To remove a group, you can use the `groupdel` command. Assuming the name of the 
 sudo groupdel developers
 ```
 
-![](img/17.0.groupdel.png)
+![](img/13.0.groupdel.png)
 
 
 ### Ensuring proper Group Permissions
 
-Group in Linux are oftern used to manage permissions for file and directories. Ensure that the relevant files or directories have the appropriate group ownership and permissions. For example, to grant the developers group read and write permissions to a directory, you can use the `chown` command.
+Group in Linux are oftern used to manage permissions for file and directories. Ensure that the relevant files or directories have the appropriate group ownership and permissions. For example, to grant the developers group ownership and permissions to a directory, you can use the `chown` command.
 
 ```bash
 sudo chown :developers /path/to/directory
 ```
 
-![](img/18.0.chown.png)
 
 And to grant read and write permissions to the group, run the command below:
 
@@ -439,32 +446,47 @@ And to grant read and write permissions to the group, run the command below:
 sudo chmod g+rw /path/to/directory
 ```
 
-![](img/19.0.chmod.png)
 
 ## Assignment
 
-- Create a group on the server called `devops`
-- Create 5 users `["mary", "mohamed", "ravi", "tunji", "sofia"]`, and ensure each user belong to the devops group
-- Crreate a folder for each user in the `/home` directory, for example `/home/mary`, `/home/mohamed`, `/home/ravi`, `/home/tunji`, `/home/sofia`
-Ensure that the group ownership of each creatred folder belons to Devops
+1. Create a group on the server called `devops`
+2. Create 5 users `["mary", "mohamed", "ravi", "tunji", "sofia"]`, and ensure each user belong to the devops group
+3. Create a folder for each user in the `/home` directory, for example `/home/mary`, `/home/mohamed`, `/home/ravi`, `/home/tunji`, `/home/sofia`
+4. Ensure that the group ownership of each creatred folder belongs to Devops
 
 ## Solution
-
+1. Create group
 ```bash
 sudo groupadd devops
+```
+![](img/1.4.0.groupadd.png)
+
+2. Create users
+```bash
 sudo useradd -m -g devops mary
 sudo useradd -m -g devops mohamed
 sudo useradd -m -g devops ravi
 sudo useradd -m -g devops tunji
 sudo useradd -m -g devops sofia
+    ```
+![](img/14.1.useradd.png)
+
+3. Create folders
+```bash
 sudo mkdir /home/mary
 sudo mkdir /home/mohamed
 sudo mkdir /home/ravi
 sudo mkdir /home/tunji
 sudo mkdir /home/sofia
+```
+![](img/14.2.file.png)
+
+4. Change group ownership of each folder
+```bash
 sudo chown :devops /home/mary
 sudo chown :devops /home/mohamed
 sudo chown :devops /home/ravi
 sudo chown :devops /home/tunji
 sudo chown :devops /home/sofia
 ```
+![](img/14.3.change-directory.png)
