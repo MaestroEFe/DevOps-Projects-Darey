@@ -490,3 +490,103 @@ sudo chown :devops /home/tunji
 sudo chown :devops /home/sofia
 ```
 ![](img/14.3.change-directory.png)
+
+## File Compression
+Compressing file is a process of reducing the size of a file or directory to make it smaller and easier to store or transfer. It is crucial for managing storage space and optimizing data transfer as a DevOps engineer. 
+
+### Compressing a file
+There are three main compression tools in Linux:
+
+1. `bzip2` - the most recommended compression tool in Linux
+2. `gzip`
+3. `xz`
+
+### How to compress a file
+
+**1. Create a tar archive:** The `tar` command is used to create a tar archive of a file or directory. Assuming the name of the file to be `test.txt`. run the command below:
+```bash
+tar -cvf test.tar test.txt
+```
+
+- Check file size with the `du` command:
+    ```bash
+    du -sh test.tar
+    ``` 
+- See the content of the tar file:
+    ```bash
+    tar -tvf test.tar
+    ```
+
+
+**2. Compress the tar file:** 
+
+### Using bzip2
+This reduces the size of the file up to abut 90% less the original file size. 
+```bash
+bzip2 test.tar
+```
+Alternatively, you can use the following command to create a bzip2 compressed tar archive directly from the original txt file:
+```bash
+tar -cjvf test.tar.bz2 test.txt
+``` 
+- Check file size with the `du` command:
+    ```bash
+    du -sh test.tar.bz2
+    ```
+
+The compression ratio of bzip2 can vary based on the file type and content. Here's a general idea:
+
+
+To see the exact compression ratio for your file, you can use this command:
+
+    ```bash
+    bzip2 -k file.txt && ls -lh file.txt.bz2
+    ```
+    The -k flag keeps the original file. The output will show the compressed size, which you can compare to the original. 
+
+### Using gzip
+This reduces the size of the file for faster transfer and storage. Run the command up to x% of the original size. 
+```bash
+tar -czvf test.tar.gz test.txt
+```
+- Check file size with the `du` command:
+    ```bash
+    du -sh test.tar.gz
+    ```
+
+The compression ratio of gzip can vary based on the file type and content. Here's a general idea:
+
+To see the exact compression ratio for your file, you can use this command:
+
+    ```bash
+    gzip -k file.txt && ls -lh file.txt.gz
+    ```
+The -k flag keeps the original file. The output will show the compressed size, which you can compare to the original.
+
+### Using xz
+This reduces the size of the file for faster transfer and storage. Run the command up to x% of the original size. 
+```bash
+tar -cJvf test.tar.xz test.txt
+```
+- Check file size with the `du` command:
+    ```bash
+    du -sh test.tar.xz
+    ```
+
+The compression ratio of xz can vary based on the file type and content. Here's a general idea:
+
+To see the exact compression ratio for your file, you can use this command:
+
+    ```bash
+    xz -k file.txt && ls -lh file.txt.xz
+    ```
+The -k flag keeps the original file. The output will show the compressed size, which you can compare to the original.
+
+**3. Extracting the tar file from bzip2 or gzip or xz:**
+
+### Using bzip2
+
+Use the `bunzip2` command to extract the tar file from bzip2.
+```bash
+bunzip2 test.tar.bz2
+```

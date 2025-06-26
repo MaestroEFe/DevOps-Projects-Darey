@@ -95,6 +95,15 @@ As you can see, the file is hidden only shows that the file has been created for
 14. **Quitting a file without saving:** Press `esc` on the keyboard to exit the `insert` mode. Then use the following commands to quit a file without saving:
     - `:q!` - quit a file without saving
 
+15. **Searching for text:** Press `esc` on the keyboard to exit the `insert` mode. Then use the following commands to search for text:
+    - `/` - search for text
+    - `n` - next match
+    - `N` - previous match
+
+16. **Pasting text:** Press `esc` on the keyboard to exit the `insert` mode. Then use the following commands to paste text:
+    - `p` - paste text
+    - `P` - paste text before the cursor
+
 ## Nano Text Editor
 Among Linux text editors, Nano stands out as a user friendly and straightforward tool, making it an excellent choice for users who are new to the command line or those who prefer a more intuitive editing experience. Nano serves as a versatile and lightweight text editor, ideal for permorming quick edits, writing scripts, or making configurations changes directly from the command line. Its intuitive command set simplifies text manipulation and editing tasks, allowing users to navigate through files, insert or delete text, and save changes with ease. Nano's ease of use extends to its keyboard shortcuts, making it accessible even to those unfamiliar with intricate command sequences. With Nano, users can focus on the content of their text file without the distraction of a complex interface, making it a go-to choice for a wide range of users, from beginners to experienced Linux enthusiasts.
 
