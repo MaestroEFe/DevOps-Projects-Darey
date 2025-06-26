@@ -70,7 +70,9 @@ comvirm that after staggin, befor commit, the file names appear in green. This c
 
 - Commit Changes
 
-`git commit -m "This is my first commit"`
+```bash
+git commit -m "This is my first commit" #where  -m is the commit message
+```
 This takes the staged changes and reoccords them into the repository's history with a massage descriping what was done. THis commit is a milestone, making a specific point in the project developement.
 
 - Push main brancg to GitHub:
