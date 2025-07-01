@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reviews - Greenwood Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .review {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 1.2em;
+        }
+
+        .reviewer {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Book Reviews</h1>
+        <nav>
+            <a href="Home.html">Home</a> |
+            <a href="About.html">About Us</a> |
+            <a href="Events.html">Events</a> |
+            <a href="Contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Featured Reviews</h2>
+
+            <div class="review">
+                <h3>The Midnight Library</h3>
+                <div class="rating">★★★★★</div>
+                <p class="author">by Matt Haig</p>
+                <p>An extraordinary book about the choices that go into a life well lived. The protagonist, Nora Seed,
+                    finds herself in a library between life and death where each book represents a different version of
+                    what her life could have been.</p>
+                <p class="reviewer">- Reviewed by Morgan</p>
+            </div>
+
+            <div class="review">
+                <h3>Project Hail Mary</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="author">by Andy Weir</p>
+                <p>A thrilling science fiction novel about an astronaut who wakes up in a spaceship with no memory of
+                    how he got there. The story is filled with scientific problem-solving and an unexpected friendship.
+                </p>
+                <p class="reviewer">- Reviewed by Jamie</p>
+            </div>
+
+            <div class="review">
+                <h3>Educated</h3>
+                <div class="rating">★★★★★</div>
+                <p class="author">by Tara Westover</p>
+                <p>A powerful memoir about the author's journey from growing up in a survivalist family in Idaho to
+                    earning a PhD from Cambridge University. A testament to the transformative power of education.</p>
+                <p class="reviewer">- Reviewed by Alex</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Submit Your Review</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="book-title">Book Title:</label><br>
+                    <input type="text" id="book-title" name="book-title" required>
+                </div>
+                <div>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div>
+                    <label for="rating">Rating:</label><br>
+                    <select id="rating" name="rating" required>
+                        <option value="5">★★★★★ (5/5)</option>
+                        <option value="4">★★★★☆ (4/5)</option>
+                        <option value="3">★★★☆☆ (3/5)</option>
+                        <option value="2">★★☆☆☆ (2/5)</option>
+                        <option value="1">★☆☆☆☆ (1/5)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="review">Your Review:</label><br>
+                    <textarea id="review" name="review" rows="5" required></textarea>
+                </div>
+                <div>
+                    <label for="name">Your Name:</label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Greenwood Library. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
