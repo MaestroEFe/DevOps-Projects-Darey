@@ -96,3 +96,16 @@ Assuming there are no conflicts, Jerry's branch is now ready to be merged into t
    - Merge Jerry's Pull Request. Complete the process by merging the PR into the main branch.
 
    This simulated workflow illustrates how Git facilitates collaborative developement, allowing multiple developers to work on a project simultaneously while maintaining a clear history of changes and contributions, even when working on same files.
+
+# Some Other Gits Commands
+
+## Change Branch Name
+
+```bash
+git branch -m old-branch-name new-branch-name #  where -m means "move"
+
+# Alternatively if you are on the branch you want to rename
+
+```bash
+git branch -M new-branch-name # where -M means "move"
+```
