@@ -16,15 +16,17 @@ A basic shell script that will create multiple folders and create multiple linux
 #!/bin/bash
 
 # Create multiple folders
-mkdir folder1 folder2 folder3
+mkdir testfolder1 testfolder2 testfolder3
 
 # Create multiple users
-sudo useradd john doe jane
+sudo useradd user1
+sudo useradd user2
+sudo useradd user3
 
 # Set password for users
-sudo passwd john
-sudo passwd doe
-sudo passwd jane
+sudo passwd user1
+sudo passwd user2
+sudo passwd user3
 ```
 # TASKS 1
 
@@ -59,15 +61,17 @@ vim my_first_shell_script.sh
 #!/bin/bash
 
 # Create multiple folders
-mkdir folder1 folder2 folder3
+mkdir testfolder1 testfolder2 testfolder3
 
 # Create multiple users
-sudo useradd john doe jane
+sudo useradd user1 
+sudo useradd user2 
+sudo useradd user3
 
 # Set password for users
-sudo passwd testing1
-sudo passwd testing2
-sudo passwd testing3
+sudo passwd user1
+sudo passwd user2
+sudo passwd user3
 ```
 ![put code](img/2.31.create-file.png)
 
@@ -154,7 +158,7 @@ chmod +x my_first_shell_script.sh
 ./my_first_shell_script.sh
 ```
 
-![run script](img/2.4.3.run-script.png)
+![run script](img/2.5.run-script.png)
 
 3. Evaluate and ensure that 3 folders have been created
 
