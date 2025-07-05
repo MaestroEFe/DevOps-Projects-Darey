@@ -66,7 +66,6 @@ else
 fi
 ```
 
-![if-else](img/1.0.if-else.png)
 
 But lets start gradually and understand the script line by line.
 
@@ -90,7 +89,7 @@ read -p "Enter a number: " num
 - The **#!/bin/bash** is called a shebang. It is used to specify the interpreter for the script. In this case, it is bash. the 
 - **read -p "Enter a number: " num** is used to read a number from the user and store it in the variable num.
 
-![control-flow](img/2.0.control-flow.png)
+![control-flow-script](img/1.0.control-flow-script.png)
 
 3. Make the script executable
 
@@ -98,7 +97,7 @@ read -p "Enter a number: " num
 chmod +x control-flow.sh
 ```
 
-![control-flow](img/3.0.control-flow.png)
+![executable](img/1.1.execution-permission.png)
 
 4. Run the script
 
@@ -120,11 +119,9 @@ read -p "Enter a number: " num
 echo "you have entered the number" $num
 ```
 
-![control-flow](img/4.0.control-flow.png)
-
 Notice how we used the echo command to print the value **(stdout)** of the variable num  to the screen?
 
-![control-flow](img/5.0.control-flow.png)
+![control-flow](img/2.1.run-script.png)
 
 Since we now have something store in the $num variable, we can use controle flow to deternine what the script executes next.
 
@@ -174,13 +171,12 @@ else
 fi
 ```
 
-![if-else](img/6.0.if-else.png)
 
 Notice the keyword **-gt**. These are called **operators**. It is used within conditional blocks to compare two values. In this case, it is used to compare the value in **$num** with 0. **-gt** means "greater than". 
 
 Run the code and experience the output. Try different numbers and see what happens. 
 
-![if-else](img/7.0.if-else.png)
+![if-else](img/2.2.if-else.png)
 
 
 **Tips:** Always read you shell script line by line to get a sense of what it is doing.
@@ -232,7 +228,7 @@ fi
 - If none of the conditions are met, the **else** part prints **"the number is zero"**.
 - The **fi** keyword marks the end of the if statement.
 
-![if-else](img/8.0.if-else.png)
+![if-else](img/2.2.if-else.png)
 
 ## Loops
 
@@ -312,7 +308,7 @@ In this example:
 
 - The command **echo "Hello, World! This is iteration $i"** prints the value of **i** to the console along with the message.
 
-![for-loop](img/10.0.for-loop.png)
+![for-loop](img/3.0.for-loop.png)
 
 
 The same code can be written using the ranging form of the for loop
@@ -366,11 +362,14 @@ chmod +x for-loop.sh
 ```bash
 ./for-loop.sh
 ```
+
+5. Repeate step 1 to 4 for a ranging form script
+
 **List Form**
-![for-loop](img/12.0.for-loop.png)
+![for-loop](img/3.2.for-loop-c-style.png)
 
 **Ranging Form**
-![for-loop](img/13.0.for-loop.png)
+![for-loop](img/3.2.for-loop-c-style.png)
 
 3. **C-Style For Loop**: This is the most common form of the for loop. It is used to iterate over a range of numbers. This style allows you to specify and initializer, condition, and increment/decrement expression. It is based on the same syntax used in doing a for loop in C Programming Language. Like this:
 
@@ -394,7 +393,7 @@ Lets break the above syntax down:
 
 - **done**: This is the keyword that marks the end of the loop body.
 
-![for-loop](img/14.0.for-loop.png)
+![for-loop](img/3.2.for-loop-c-style.png)
 
 
 **How it works**
@@ -409,7 +408,7 @@ Lets break the above syntax down:
 - Repeat: The loop repeats until the condition is false.
 ```
 
-![for-loop](img/15.0.for-loop.png)
+![for-loop](img/3.2.for-loop-c-style.png)
 
 **Let's Take a walkthrough to further expand on our understanding of the for loop**
 
