@@ -46,7 +46,12 @@ create_s3_buckets() {
 
 In this updated version, before attempting to create each bucket, we use the aws s3api head-bucket command to check if the bucket already exists. If the bucket exists, a message is displayed indicating its presence. Otherwise, the script proceeds to create the bucket as before. This approach helps prevent errors and ensures that existing buckets are not recreated unnecessarily.
 
-Congratulations for reaching this milestone.
+![alt text](image.png)
 
-Your task
+
+### Task
 Summarise all your learning in this mini project into a paragraph and submit.
+
+### Solution
+
+Having error handling in shell scripts is important because it helps to prevent errors and ensures that the script runs smoothly. It also helps to make the script more reliable and robust. Shell scripting can be used to carry out lots of automation tasks, and error handling is a crucial aspect of shell scripting.
