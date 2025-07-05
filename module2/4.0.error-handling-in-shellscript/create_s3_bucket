@@ -1,6 +1,11 @@
 #!/bin/bash
+
 # Function to create S3 buckets for different departments
-create_s3_buckets() {"\n    company=\"datawise\"\n    departments=(\"Marketing\" \"Sales\" \"HR\" \"Operations\" \"Media\")\n    \n    for department in \"${departments[@]"}"; do
+create_s3_buckets() {
+    company="datawise"
+    departments=("Marketing" "Sales" "HR" "Operations" "Media")
+    
+    for department in "${departments[@]}"; do
         bucket_name="${company}-${department}-Data-Bucket"
         
         # Check if the bucket already exists
@@ -8,7 +13,7 @@ create_s3_buckets() {"\n    company=\"datawise\"\n    departments=(\"Marketing\"
             echo "S3 bucket '$bucket_name' already exists."
         else
             # Create S3 bucket using AWS CLI
-            aws s3api create-bucket --bucket "$bucket_name" --region your-region
+            aws s3api create-bucket --bucket "$bucket_name" --region us-east-1  # Changed your-region to us-east-1
             if [ $? -eq 0 ]; then
                 echo "S3 bucket '$bucket_name' created successfully."
             else
@@ -18,4 +23,5 @@ create_s3_buckets() {"\n    company=\"datawise\"\n    departments=(\"Marketing\"
     done
 }
 
-
+# Call the function
+create_s3_buckets

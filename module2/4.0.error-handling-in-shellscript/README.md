@@ -20,7 +20,9 @@ If you try to run your script more than once, you will end up creating more EC2 
 So, you can be as creative as you like, by thinking about the different errors that may occur during script execution and then handle each one carefully.
 
 ```bash
- Function to create S3 buckets for different departments
+#!/bin/bash
+
+# Function to create S3 buckets for different departments
 create_s3_buckets() {
     company="datawise"
     departments=("Marketing" "Sales" "HR" "Operations" "Media")
@@ -42,11 +44,15 @@ create_s3_buckets() {
         fi
     done
 }
+
+# Call the function
+create_s3_buckets   
 ```
 
 In this updated version, before attempting to create each bucket, we use the aws s3api head-bucket command to check if the bucket already exists. If the bucket exists, a message is displayed indicating its presence. Otherwise, the script proceeds to create the bucket as before. This approach helps prevent errors and ensures that existing buckets are not recreated unnecessarily.
 
 ![alt text](image.png)
+![alt text](image2.png)
 
 
 ### Task
