@@ -237,3 +237,209 @@ fi
 ## Loops
 
 Moving forward in our journey through Bash scripting, we will be learning about loops. Loops are used to repeat a block of code multiple times. 
+
+Loops empower us to automate and repeate tasks without writing the same code over and over again. Imagine having to perform a tasks, like sending a greeting message to each of your friend by name. Without loops, you'd have to write a separate code for each friend.  Loops streamline this process by allowing you to write a single set of code instructions that can be executed multiple times, making your script both cleaner and more powerful.
+
+Some real world scenarios where loops are inevitable are:
+
+**Batch Processing:** Suppose you have a folder full of photos you want to resize or edit in some way, instead of editing each photo individually, a loop can automate this task, applying the same code to each photo in the folder.
+
+**Data Processing:**  In software development, loops are used to process data in batches, such as processing a list of names and generating a greeting message for each name. 
+
+**Data Analysis:** Loops are used to analyze data, such as analyzing a list of names and generating a report for each name. It can be used to perform calculations on numerous data sets.
+
+**Automation:** Loops are used to automate tasks, such as sending a greeting message to each of your friend by name. Without loops, you'd have to write a separate code for each friend.  Loops streamline this process by allowing you to write a single set of code instructions that can be executed multiple times, making your script both cleaner and more powerful.
+
+**Automated Testing:** In software development, loops are invaluable for running through numerous test cases. You can use a loop to automatically test different inputs for your program and verify that it behaves as expected using the same code.
+
+In Bash scripting, there are three primary types of loops that are commonly used to repeat a set of commands multiple times based on certain conditions. These are:
+
+1. for loop
+2. while loop
+3. until loop
+
+Let's go through each of these loops and understand how they work.
+
+### for loop
+
+The for loop is used to iterate over a list of values or a range of numbers. It is particularly useful when you know in advance how many times you need to execute the loop body.
+
+The **for** loop has two main forms:
+
+1. **List Form:** Iterates over a list of items
+
+```bash
+list = ("item1", "item2", "item3")
+for item in list; do
+    # code to execute for each item
+done
+```
+
+- **for:** This keyword marks the start of the for loop.
+
+- **item:** This is the variable that will hold the current item in the list temporarily. For each iteration, the value of the current item is assigned to the variable.
+
+- **in:** This keyword is used to specify the list of items to iterate over.
+
+- **list:** This is the list of items to iterate over. It can be a string, an array, or a range of numbers.
+
+- **;:** A semicolon is used to separate the list of items from the do keyword that follows. If you place a do keyword on the next line, the semicolon is optional.
+
+- **do:** This keyword marks the start of the loop body.
+
+- **done:** This keyword marks the end of the loop body.
+
+Let's examin a real example:
+
+```bash
+for i in 1 2 3 4 5; do
+    echo "Number: $i"
+done
+```
+alternatively, if you put the do keyword on the next line, the semicolon is optional.
+```bash
+for i in 1 2 3 4 5
+do
+    echo "Hello, World! This is iteration $i"
+done
+```
+
+In this example:
+
+- The loop starts with **for i in 1 2 3 4 5**, meaning the variable **i** will take on the values 1, 2, 3, 4, and 5 in each iteration.
+
+- For each value of **i**, the loop executes the command between do and done.
+
+- The command **echo "Hello, World! This is iteration $i"** prints the value of **i** to the console along with the message.
+
+![for-loop](img/10.0.for-loop.png)
+
+
+The same code can be written using the ranging form of the for loop
+
+2. **Ranging Form**
+
+```bash
+for i in {1..5}; do
+    echo "Hello, World! This is iteration $i"
+done
+```
+
+![for-loop](img/11.0.for-loop.png)
+
+**TASk**
+
+1. Create a script for each type of the for loop discussed above
+
+2. Insert the code in the files
+
+3. Make the scripts executable
+
+4. Run the scripts and evaluate the experience
+
+**Solution**
+
+1. Create a script for each type of the for loop discussed above
+
+```bash
+vim for-loop.sh
+```
+
+2. Insert the code in the files
+
+```bash
+#!/bin/bash
+
+for i in 1 2 3 4 5; do
+    echo "Hello, World! This is iteration $i"
+done
+```
+
+3. Make the scripts executable
+
+```bash
+chmod +x for-loop.sh
+```
+
+4. Run the scripts and evaluate the experience
+
+```bash
+./for-loop.sh
+```
+**List Form**
+![for-loop](img/12.0.for-loop.png)
+
+**Ranging Form**
+![for-loop](img/13.0.for-loop.png)
+
+3. **C-Style For Loop**: This is the most common form of the for loop. It is used to iterate over a range of numbers. This style allows you to specify and initializer, condition, and increment/decrement expression. It is based on the same syntax used in doing a for loop in C Programming Language. Like this:
+
+```bash
+for ((i=0; i<5; i++)); do
+    echo "Hello, World! This is iteration $i"
+done
+```
+
+Lets break the above syntax down:
+
+- **for ((...))**: This is the syntax for the c-style for loop. It is used to iterate over a range of numbers. The syntax is **for ((initializer; condition; increment/decrement))**
+
+- **i=0**: This is the initializer. It is used to initialize the loop variable. In this case, it is used to initialize the loop variable to 0.
+
+- **i<5**: This is the condition. It is used to specify the condition for the loop. In this case, it is used to specify the condition for the loop to run as long as **i** is less than 5.
+
+- **i++**: This is the increment/decrement expression. It is used to increment or decrement the loop variable. In this case, it is used to increment the loop variable by 1.
+
+- **do**: This is the keyword that marks the start of the loop body.
+
+- **done**: This is the keyword that marks the end of the loop body.
+
+![for-loop](img/14.0.for-loop.png)
+
+
+**How it works**
+
+```
+ - Initialization: Before the first iteration,"i" is set to 0.
+ - Condition Check: Before each iteration, including the first, Bash checks if it is less than 5.
+    - If the condition is true, the loop body is executed.
+    - If the condition is false, the loop is terminated.
+- Execute commands: The command(s) inside the "do ... done" block are executed. In this case, it prints the current value of "i" to the console.
+- Increment/Decrement: After each iteration, the loop variable is incremented by 1.
+- Repeat: The loop repeats until the condition is false.
+```
+
+![for-loop](img/15.0.for-loop.png)
+
+**Let's Take a walkthrough to further expand on our understanding of the for loop**
+
+- **First Iteration:**
+    - The loop variable "i" is initialized to 0.
+    - The condition is checked: 0 < 5 (true).
+    - The command inside the loop body is executed: echo "Hello, World! This is iteration 0".
+    - The loop variable is incremented: i = 0 + 1 = 1.
+    - The loop repeats with the new value of i.
+
+- **Second Iteration:**
+    - The loop variable "i" is initialized to 1.
+    - The condition is checked: 1 < 5 (true).
+    - The command inside the loop body is executed: echo "Hello, World! This is iteration 1".
+    - The loop variable is incremented: i = 1 + 1 = 2.
+    - The loop repeats with the new value of i.
+
+- **Continue Iteration:** ...
+
+- **Fifth Iteration:** ...
+    - The loop variable "i" is initialized to 4.
+    - The condition is checked: 4 < 5 (true).
+    - The command inside the loop body is executed: echo "Hello, World! This is iteration 4".
+    - The loop variable is incremented: i = 4 + 1 = 5.
+    - The loop repeats with the new value of i.
+
+- **Sixth Iteration:** ...
+    - The loop variable "i" is initialized to 5.
+    - The condition is checked: 5 < 5 (false).
+    - The loop is terminated.
+
+This C-style for loop is powerful for numerical iterations, especially when you need precise controle over the start, end, and step size of the loop.
+    
