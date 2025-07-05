@@ -44,15 +44,15 @@ create_s3_buckets() {
         fi
     done
 }
-
-# Call the function
-create_s3_buckets   
 ```
 
 In this updated version, before attempting to create each bucket, we use the aws s3api head-bucket command to check if the bucket already exists. If the bucket exists, a message is displayed indicating its presence. Otherwise, the script proceeds to create the bucket as before. This approach helps prevent errors and ensures that existing buckets are not recreated unnecessarily.
 
-![alt text](image.png)
-![alt text](image2.png)
+<!-- ![alt text](image2.png) -->
+
+![alt text](image-1.png)
+
+<!-- ![alt text](image.png) -->
 
 
 ### Task

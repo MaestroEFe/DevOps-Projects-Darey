@@ -2,18 +2,18 @@
 
 # Function to create S3 buckets for different departments
 create_s3_buckets() {
-    company="datawise"
-    departments=("Marketing" "Sales" "HR" "Operations" "Media")
+    school="DAREY"
+    departments=("Biology" "Chemistry" "Physics" "Mathematics" "Computer Science")
     
     for department in "${departments[@]}"; do
-        bucket_name="${company}-${department}-Data-Bucket"
+        bucket_name="${school}-${department}-Data-Bucket"
         
         # Check if the bucket already exists
         if aws s3api head-bucket --bucket "$bucket_name" &>/dev/null; then
             echo "S3 bucket '$bucket_name' already exists."
         else
             # Create S3 bucket using AWS CLI
-            aws s3api create-bucket --bucket "$bucket_name" --region us-east-1  # Changed your-region to us-east-1
+            aws s3api create-bucket --bucket "$bucket_name" --region eu-west-1 
             if [ $? -eq 0 ]; then
                 echo "S3 bucket '$bucket_name' created successfully."
             else
@@ -23,5 +23,4 @@ create_s3_buckets() {
     done
 }
 
-# Call the function
 create_s3_buckets
