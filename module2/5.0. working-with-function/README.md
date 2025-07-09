@@ -59,7 +59,7 @@ ENVIRONMENT=$1
 # Acting base on the argument value
 if [ "$ENVIRONMENT" == "local" ]; then
     echo "Running script for local environment..."
-    elif [ "$ENVIRONMENT" == "testing" ]; then
+    elif [[ "$ENVIRONMENT" == "testing" ]]; then
     echo "Running script for testing environment..."
     elif [ "$ENVIRONMENT" == "production" ]; then
     echo "Running script for production environment..."
@@ -85,7 +85,7 @@ ENVIRONMENT=$1
 # Acting base on the argument value
 if [ "$ENVIRONMENT" == "local" ]; then
     echo "Running script for local environment..."
-    elif [ "$ENVIRONMENT" == "testing" ]; then
+    elif [[ "$ENVIRONMENT" == "testing" ]]; then
     echo "Running script for testing environment..."
     elif [ "$ENVIRONMENT" == "staging" ]; then
     echo "Running script for staging environment..."
@@ -159,11 +159,11 @@ check_num_of_args() {
 
 activate_infra_environment() {
     # Acting based on the argument value
-    if [$ENVIRONMENT == "local"] then
+    if [[ $ENVIRONMENT == "local" ]]; then
         echo "Running script for local environment..."
-    elif [$ENVIRONMENT == "testing"] then
+    elif [[ $ENVIRONMENT == "testing" ]]; then
         echo "Running script for testing environment..."
-    elif [$ENVIRONMENT == "production"] then
+    elif [[ $ENVIRONMENT == "production" ]]; then
         echo "Running script for production environment..."
     else
         echo "Invalid environment specified. Please use local, testing, staging or production."
@@ -337,11 +337,11 @@ check_num_of_args() {
 
 # function to activate infrastructure environment
 activate_infra_environment() {
-    if [$ENVIRONMENT == "local"]; then
+    if [[ "$ENVIRONMENT" == "local" ]]; then
         echo "Running script for local environment..."
-    elif [$ENVIRONMENT == "testing"]; then
+    elif [[ "$ENVIRONMENT" == "testing" ]]; then
         echo "Running script for testing environment..."
-    elif [$ENVIRONMENT == "production"]; then
+    elif [[ "$ENVIRONMENT" == "production" ]]; then
         echo "Running script for production environment..."
     else
         echo "Invalid environment specified. Please use local, testing, staging or production."
@@ -367,19 +367,58 @@ check_aws_profile() {
 
 # Function to check if AWS credentials are configured
 check_aws_credentials() {
-    if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ] || [ -z "$AWS_DEFAULT_REGION" ]; then
-        echo "AWS credentials are not configured. Please configure them before running this script."
+    log "INFO" "Validating AWS credentials..."
+    
+    if [[ -z "$AWS_ACCESS_KEY_ID" || -z "$AWS_SECRET_ACCESS_KEY" ]]; then
+        log "ERROR" "AWS credentials are not configured."
         return 1
     fi
+    
+    if [[ -z "$AWS_DEFAULT_REGION" ]]; then
+        log "WARNING" "AWS_DEFAULT_REGION is not set. Defaulting to us-east-1"
+        export AWS_DEFAULT_REGION="us-east-1"
+    fi
+    
+    # Validate credentials by making a simple AWS call
+    if ! aws sts get-caller-identity &> /dev/null; then
+        log "ERROR" "Failed to validate AWS credentials"
+        return 1
+    fi
+    
+    log "INFO" "AWS credentials validated successfully"
+    return 0
 }
 
+validate_iam_permissions() {
+    local required_policies=("AmazonS3FullAccess" "IAMReadOnlyAccess")
+    local missing_policies=()
+    
+    log "INFO" "Validating IAM permissions..."
+    
+    for policy in "${required_policies[@]}"; do
+        if ! aws iam list-attached-user-policies --user-name $(aws sts get-caller-identity --query 'Arn' --output text | cut -d'/' -f2) --output text | grep -q "$policy"; then
+            missing_policies+=("$policy")
+        fi
+    done
+    
+    if [[ ${#missing_policies[@]} -ne 0 ]]; then
+        log "WARNING" "Missing required IAM policies: ${missing_policies[*]}"
+        return 1
+    fi
+    
+    log "INFO" "All required IAM permissions are in place"
+    return 0
+}
 # Call the functions
 check_num_of_args
 activate_infra_environment
 check_aws_cli
 check_aws_profile
 check_aws_credentials
+validate_iam_permissions
 ```
+
+
 Updated script:
 
 ```bash
@@ -440,26 +479,33 @@ check_aws_credentials() {
         echo "Warning: AWS_DEFAULT_REGION is not set."
     fi
 }
-
-# Main execution
 main() {
+    # Initialize logging
+    local log_file="deployment_$(date +%Y%m%d_%H%M%S).log"
+    exec > >(tee -a "$log_file") 2>&1
+    
+    log "INFO" "Starting deployment script..."
+    
     # Check arguments first
     check_num_of_args "$@"
     
     # Set environment
-    ENVIRONMENT="$1"
+    local ENVIRONMENT="$1"
     activate_infra_environment "$ENVIRONMENT"
     
     # Check AWS prerequisites
-    check_aws_cli || exit 1
-    check_aws_credentials || exit 1
-    check_aws_profile  # Warning only
+    check_aws_cli || { log "ERROR" "AWS CLI check failed"; exit 1; }
+    check_aws_credentials || { log "ERROR" "AWS credentials check failed"; exit 1; }
+    check_aws_profile
+    validate_iam_permissions || log "WARNING" "Some IAM validations failed, but continuing..."
     
-    echo "All checks passed. Proceeding with script execution..."
+    log "INFO" "All pre-flight checks passed. Proceeding with deployment..."
+    
     # Add your main script logic here
+    
+    log "INFO" "Deployment completed successfully"
+    exit 0
 }
-
-# Run the main function with all arguments
 main "$@"
 ```
 ## Summary
