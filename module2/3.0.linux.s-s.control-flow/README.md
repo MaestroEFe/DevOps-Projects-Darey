@@ -87,7 +87,9 @@ read -p "Enter a number: " num
 **The script breakdown**
 
 - The **#!/bin/bash** is called a shebang. It is used to specify the interpreter for the script. In this case, it is bash. the 
-- **read -p "Enter a number: " num** is used to read a number from the user and store it in the variable num.
+- **read** is a command that is used to read a number from the user and store it in the variable num.
+- **-p** is an option for the read command that is used to print a prompt message to the user. 
+- **num** is a variable that is used to store the number entered by the user.
 
 ![control-flow-script](img/1.0.control-flow-script.png)
 
