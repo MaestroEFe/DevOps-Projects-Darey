@@ -1,0 +1,3 @@
+# E-commerce Platform Deployment with Git, Linux and AWS
+
+You have been assigned to develope and e-comerce website for a new online marketplace named "MarketPeak". This platform will feature product listings, a shopping cart, and a user authentication. Your Objective is to utilize Git for version control, develope the website in a Linux environment, and deploy it on an AWS EC2 instance. You can find a suitable website teplate [here](https://www.tooplate.com/) to kickstart your development.
