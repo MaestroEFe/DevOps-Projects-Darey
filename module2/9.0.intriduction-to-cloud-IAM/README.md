@@ -106,15 +106,15 @@ DeveloperTeamPolicy
 **🔧 Steps in AWS Console:**
 1. Go to IAM > Policies.
 
-![alt text](image.png)
+![alt text](img/image.png)
 
 2. Click Create policy.
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 3. Choose JSON tab and paste the policy above.
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 4. Click Next, then give it a name like DeveloperTeamPolicy.
 
@@ -122,13 +122,13 @@ DeveloperTeamPolicy
 
 5. Add a description (optional but recommended). Write; "This policy grants permissions necessary for backend developers like John to work with EC2."
 
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 6. Click Create policy.
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 ### Using the AWS Management Console
 
@@ -139,11 +139,11 @@ DeveloperTeamPolicy
 3. In the select a service section, search for ec2
 
 4. For simplicity sake, select the “All EC2 actions” checkbox
-   ![alt text](image-6.png)
+   ![alt text](img/image-6.png)
 
 5. Also, make sure to select “All” in the Resources section
 
-- ![alt text](image-7.png)
+- ![alt text](img/image-7.png)
 
 6. Click Next at the bottom right
 
@@ -153,7 +153,7 @@ DeveloperTeamPolicy
 
 Notice that after creating the policy, if you search for **"DeveloperTeamPolicy"** in the search box, you will notice that a number of policies are returned. This highlights the presence of both AWS managed and customer managed policies. AWS managed policies are predefined by AWS and provide permissions for many common use cases, allowing for quick and broad access management across AWS services without the need for custom policy creation like we just did. In contrast, customer managed policies are created and fully controlled by you, allowing for more tailored, specific access controls that can be finely tuned to your organization’s requirements.
 
-- ![alt text](image-8.png)
+- ![alt text](img/image-8.png)
 
 ## Create policy for the Data Analyst team
 
@@ -162,11 +162,11 @@ DataAnalystTeamPolicy
 
 Repeat the process above for the Data Analysts team, but instead of EC2, search for S3. Also name the policy analyst instead of developers. You can give it any description of your choice. Use the discription; "This policy grants permissions necessary for data analysts like Mary to work with S3."
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
-![alt text](image-11.png)
+![alt text](img/image-11.png)
 
 ## Create Group for the Development team
 
@@ -177,17 +177,17 @@ DeveloperTeamGroup
 
 1. In the IAM console navigation, select User group and in the top right click Create group
 
-   ![alt text](image-12.png)
+   ![alt text](img/image-12.png)
 
 2. Add on a name for the group (DeveloperTeamGroup)
 
 3. Attach the DeveloperTeamPolicy we created earlier to the group. This will allow any user in the Development-Team group to have access to EC2 instances alone
 
-![alt text](image-13.png)
+![alt text](img/image-13.png)
 
 4. You have successfully created a group and attached a permission for any user added to the group to have access to the EC2 instance only. Recall that users in this group will be backend developers only.
 
-![alt text](image-14.png)
+![alt text](img/image-14.png)
 
 ## Create a group for the Data Analyst team
 
@@ -202,9 +202,9 @@ ii. Intead of attching DeveloperTeamPolicy, attach DataAnalystTeamPolicy.
 
 Recall that you only allowed S3 access to the Data Analysts. So any user in this group will have access to S3 services only. In our case, our users will be the data analysts.
 
-![alt text](image-15.png)
+![alt text](img/image-15.png)
 
-![alt text](image-16.png)
+![alt text](img/image-16.png)
 
 ## Creating IAM User for John
 
@@ -213,30 +213,30 @@ John
 
 1. In the IAM console navigation, select Users and in the top right click Add user
    
-   ![alt text](image-17.png)
+   ![alt text](img/image-17.png)
 
 2. Add on a name for the user
 
-   ![alt text](image-19.png)
+   ![alt text](img/image-19.png)
 
 3. Attach the DeveloperTeamPolicy we created earlier to the user. This will allow any user in the Development-Team group to have access to EC2 instances alone
    
 
 4. Add the user to the DeveloperTeamGroup
   
-  ![alt text](image-21.png)
+  ![alt text](img/image-21.png)
 
-  ![alt text](image-22.png)
+  ![alt text](img/image-22.png)
 
 5. You have successfully created a user and attached a permission for any user added to the group to have access to the EC2 instance only. Recall that users in this group will be backend developers only.
 
-![alt text](image-23.png)
+![alt text](img/image-23.png)
 
 5. Download the users password and return to create Mary user account
 
-![alt text](image-24.png)
+![alt text](img/image-24.png)
 
-![alt text](image-25.png)
+![alt text](img/image-25.png)
 
 ## Creating IAM User for Mary
 
@@ -245,11 +245,11 @@ Mary
 
 Repeat the process above for the Data Analyst team. Instead of DeveloperTeamPolicy, attach DataAnalystTeamPolicy.
 
-![alt text](image-26.png)
+![alt text](img/image-26.png)
 
-![alt text](image-27.png)
+![alt text](img/image-27.png)
 
-![alt text](image-28.png)
+![alt text](img/image-28.png)
 
 ## Testing and Validation
 
@@ -257,52 +257,52 @@ Repeat the process above for the Data Analyst team. Instead of DeveloperTeamPoli
 
 Login as John: Use the credentials provided to John to log into the AWS Management Console.
 
-![alt text](image-29.png)
+![alt text](img/image-29.png)
 
  This simulates John's user experience and ensures he has the correct access.
 
- ![alt text](image-30.png)
+ ![alt text](img/image-30.png)
 
 Access EC2 Dashboard: Navigate to the EC2 dashboard within the AWS Management Console. John should be able to view, launch, and manage EC2 instances as his role requires access to servers for deploying and managing backend applications.
 
-![alt text](image-31.png)
+![alt text](img/image-31.png)
 
 Perform EC2 Actions: Attempt to create a new EC2 instance or modify an existing one to confirm that John has the necessary permissions. If John can successfully perform these actions, it indicates the IAM user has been correctly set up with the appropriate policies for a backend developer. As seen in the image below, John can create a new EC2 instance.
 
-![alt text](image-33.png)
+![alt text](img/image-33.png)
 
-![alt text](image-32.png)
+![alt text](img/image-32.png)
 
-![alt text](image-34.png)
+![alt text](img/image-34.png)
 
 **Testing permission on S3 Buckets for John**
 
 John can't access S3 buckets as seen in the image below.
 
-![alt text](image-35.png)
+![alt text](img/image-35.png)
 
 **Testing Mary Access**
 
 Login as Mary: Use the credentials provided to Mary to log into the AWS Management Console. 
 
-![alt text](image-36.png)
+![alt text](img/image-36.png)
 
 This ensures that Mary's user experience is as expected and that she has the correct access.
 
-![alt text](image-37.png)
+![alt text](img/image-37.png)
 
 Access S3 Dashboard: Navigate to the S3 dashboard within the AWS Management Console. Mary should be able to view, create, and manage S3 buckets as her role requires access to data storage for analyzing and managing data.
 Perform S3 Actions: Try to create a new S3 bucket or upload data to an existing bucket to verify that Mary has the necessary permissions. Successful execution of these tasks will confirm that Mary's IAM user has been properly set up with the appropriate policies for a data analyst.
 
 As seen, mary can't create EC2 dashboard but can create S3 bucket as seen in the image below.
 
-![alt text](image-38.png)
+![alt text](img/image-38.png)
 
-![alt text](image-39.png)
+![alt text](img/image-39.png)
 
 No access to EC2 dashboard for Mary as seen in the image below.
 
-![alt text](image-40.png)
+![alt text](img/image-40.png)
 
 **Validating Group Policies**
 For both users, ensure that their access is confined to their role-specific resources (EC2 for John and S3 for Mary) and that they cannot access other AWS services beyond what their group policies permit. This validation ensures adherence to the principle of least privilege, enhancing security by limiting access to only what is necessary for each user's role.
@@ -320,15 +320,15 @@ Setting Up MFA for John
 
 2. Click on enable MFA as shown in the image below
 
-![alt text](image-41.png)
+![alt text](img/image-41.png)
 
 3. Enter a device name for john MFA and select authenticator app
 
-![alt text](image-42.png)
+![alt text](img/image-42.png)
 
 There are multiple options to choose from. In all, you should select the one that best suits you. You can see the one i selected above.
 
-![alt text](image-43.png)
+![alt text](img/image-43.png)
 
 6. By completing step 1-5, MFA will be enabled for john
 
