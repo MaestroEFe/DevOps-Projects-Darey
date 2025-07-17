@@ -318,35 +318,24 @@ Setting Up MFA for John
 
 1. Click on User and then click on john. It is assumed we already created a user account for john
 
-![alt text](img/9.0.aws-website.png)
-
 2. Click on enable MFA as shown in the image below
 
-![alt text](img/9.0.aws-website.png)
+![alt text](image-41.png)
 
 3. Enter a device name for john MFA and select authenticator app
 
-![alt text](img/9.0.aws-website.png)
+![alt text](image-42.png)
 
-Note: You should install authenticator app like Google authenticator or microsoft authenticator on your mobile device if you don't have it installed.
+There are multiple options to choose from. In all, you should select the one that best suits you. You can see the one i selected above.
 
-4. Click on Next
-
-![alt text](img/9.0.aws-website.png)
-
-5. Open your Google authenticator or microsoft authenticator application on your mobile device to scan the QR Code, then you can fill in the 2 consecutive codes as shown in the image below
-
-![alt text](img/9.0.aws-website.png)
+![alt text](image-43.png)
 
 6. By completing step 1-5, MFA will be enabled for john
-
-![alt text](img/9.0.aws-website.png)
 
 **Setting Up MFA for Mary**
 
 Repeat the same step for Mary
 
-![alt text](img/9.0.aws-website.png)
 
 **Project reflection**
 
