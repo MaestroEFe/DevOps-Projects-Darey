@@ -56,158 +56,185 @@ You can think IAM Groups as these neat little collections of users with similar 
 For example, let's say you have a development team working on a project. Instead of assigning permissions to each developer one by one, you can create an IAM Group called "Developers" and add all the developers to that group. Then, you assign the developer permissions (role) to the group as a whole. So, if you want all developers to have access to the same resources, you only need to set it up once for the group.
 
 
-##Best Practices:
+## Best Practices:
 
 - Give only the permissions needed. Don't give more access than necessary.
 - Use roles instead of users. Roles are safer and can be used when needed.
 - Review roles regularly. Remove unused roles to keep things tidy and secure.
-- Add extra security with MFA. Use Multi-Factor Authentication for extra protection.
+- Add extra security with MFA. Use Multi-Factor Authentication for extra protection.    
+- Use ready-made policies. They're safer and easier to use.
+- Keep policies simple. Make separate policies for different tasks.
+- Keep track of changes. Keep a record of who changes what.
+- Test policies before using them. Make sure they work the way you want them to before applying them to real stuff.
+- Use descriptive names. Choose clear and descriptive names for IAM groups to facilitate understanding and management.
+- Enforce strong password policies. Encourage users to create strong passwords and implement expiration and complexity requirements.
 
+*Note- (difference between users and roles) In AWS, users are like individual people with their own set of keys to access resources. These keys are permanent and tied to specific individuals. It's similar to having your own key to the front door of your house—it's always yours.*
 
-
-Use ready-made policies. They're safer and easier to use.
-Keep policies simple. Make separate policies for different tasks.
-Keep track of changes. Keep a record of who changes what.
-Test policies before using them. Make sure they work the way you want them to before applying them to real stuff.
-Use descriptive names. Choose clear and descriptive names for IAM groups to facilitate understanding and management.
-Enforce strong password policies. Encourage users to create strong passwords and implement expiration and complexity requirements.
-
-Note- (difference between users and roles) In AWS, users are like individual people with their own set of keys to access resources. These keys are permanent and tied to specific individuals. It's similar to having your own key to the front door of your house—it's always yours.
 On the other hand, roles in AWS are more like special keys that can be used by different people or even programs. These keys provide temporary access and can be used by different users as needed. Roles are like master keys that can be used by anyone who needs access to certain things temporarily. So, while users are tied to specific individuals, roles are more flexible and can be shared among different users for specific tasks.
-For MFA you can check Multi-Factor Authentication (MFA) for IAM
-Hope you have understood all about IAM. Now come to the practical part.
-A growth marketing consultancy company called GotoGrowFast.com wants to give some access to their employee Eric, Jack and Ade to the Aws resources. Let's see how it is being setup.
+
+*For MFA you can check [Multi-Factor Authentication (MFA) for IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html)*
+
+Hope you have understood all about IAM. Now let's get to the practical part.
+
+A growth marketing consultancy company called GotoGrowFast.com wants to give some access to their employee **Eric**, **Jack** and **Ade** to the Aws resources. Let's see how it is being setup.
 We'll do it in Two parts. In the first part of the practical, we'll create a policy granting full access to EC2. Then, we'll create a user named Eric and attach that policy to him.
 In the second part, we'll create a group and add two more users, Jack and Ade, to that group. Afterward, we'll create a policy for granting full access to EC2 and S3, and attach it to the group.
-Part-1
 
-Navigate to the AWS Management Console.
+## Part-1
 
-a) use the search bar to locate the Identity and Access Management (IAM) service.
-[Alt text]
+1. Navigate to the AWS Management Console.
 
-Now, on the IAM dashboard, navigate to the left sidebar and click on "Policies."
+a. use the search bar to locate the Identity and Access Management (IAM) service.
 
-a) From there, search for "EC2" and select "AmazonEC2FullAccess" from the list of policies.
-b) Proceed by clicking on "Create policy" to initiate the policy creation process.
-[Alt text]
+![alt text](img/image.png)
 
-Now, select all EC2 actions.
+2. Now, on the IAM dashboard, navigate to the left sidebar and click on "Policies."
 
- 4:
-[Alt text]
+a. From there, search for "EC2" and select "AmazonEC2FullAccess" from the list of policies.
+b. Proceed by clicking on "Create policy" to initiate the policy creation process.
 
-Tick "All resources" and click "Next."
+![alt text](img/image-1.png)
 
-[Alt text]
+3. Now, select all EC2 actions.
 
-Now click on create policy
+![alt text](img/image-2.png)
 
-[Alt text]
+4. Tick "All resources" and click "Next."
+
+![alt text](img/image-3.png)
+
+5. Now click on create policy
+
+![alt text](img/image-4.png)
+
 This is the policy we have created.
-[Alt text]
 
-Now, proceed to the "Users" section, and select the option to "Create User."
+![alt text](img/image-5.png)
 
-[Alt text]
+6. Now, proceed to the "Users" section, and select the option to "Create User."
 
-Enter the desired username for the user.
+![alt text](img/image-6.png)
 
-a) Then select the option "Provide user access to the AWS Management Console" if access to the web-based console interface is required.
-b) Proceed to set up a password for the user.
-c) check the box "Users must create a new password at next sign-in" if allowing users to change their password upon first sign-in is preferred.
-[Alt text]
+7. Enter the desired username for the user.
 
-Select "Attach policy directly" and navigate to "Filter customer managed policies."
+a. Then select the option "Provide user access to the AWS Management Console" if access to the web-based console interface is required.
+b. Proceed to set up a password for the user.
+c. check the box "Users must create a new password at next sign-in" if allowing users to change their password upon first sign-in is preferred.
 
-a) Choose the policy you created named "policy_for_eric."
-b) Then proceed by clicking "Next."
-[Alt text]
+![alt text](img/image-7.png)
 
+8. Select "Attach policy directly" and navigate to "Filter customer managed policies."
 
-Image 1:
+a. Choose the policy you created named "policy_for_eric."
+b. Then proceed by clicking "Next."
+
+![alt text](img/image-8.png)
+
 Note- Aws policies –
 
 Managed Policies: Made by AWS, used by many.
 Customer Managed Policies: You make and manage them.
 Inline Policies: Made for one specific thing.
 
-For further details, please refer to Policies and permissions in IAM in IAM documentation.
+For further details, please refer to [Policies and permissions in IAM in IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html).
 
-Next, click on "Create User."
+9. Next, click on "Create User."
 
-Alt text
+![alt text](img/image-9.png)
 
-Ensure to save these details securely for future reference.
+10. Ensure to save these details securely for future reference.
 
-a) Click on "Return to user list"
-Alt text
+a. Click on "Return to user list"
+
+![alt text](img/image-10.png)
+
 Eric's user has been successfully created, and the policy granting him full access to EC2 has been attached.
-Now let's come to Part-2
 
-On the "User Groups" section, enter a name for the group.
+## Now let's come to Part-2
 
-a) click on "Create User Group."
-b) Then, proceed to the "Users" section.
-Alt text
-Alt text
+1. On the "User Groups" section, enter a name for the group.
+
+a. click on "Create User Group."
+b. Then, proceed to the "Users" section.
+
+![alt text](img/image-11.png)
+
+![alt text](img/image-12.png)
+
 This is the user you've created.
-c) Now, let's proceed to the "Users" section.
-Alt text
-Image 2:
+c. Now, let's proceed to the "Users" section.
 
-Now, let's create a user named Jack.
+![alt text](img/image-13.png)
 
-Alt text
+2. Now, let's create a user named Jack.
 
-In the "Permissions" options, select "Add user to group."
+![alt text](img/image-14.png)
 
-a) Then, in the "User groups" section,
-b) choose the group you created named "development-team,".
-c) click "Next."
-Alt text
+3. In the "Permissions" options, select "Add user to group."
 
-Now, click on create user
+a. Then, in the "User groups" section
 
-Alt text
+b. choose the group you created named "development-team,".
+
+c. click "Next." 
+![Alt text](img/image-15.png)
+
+
+
+4. Now, click on create user
+
+![alt text](img/image-16.png)
+
+
 You need to repeat the same process for user Ade. Create user Ade and add him to the user group "Development-team."
-Alt text
-Alt text
-Alt text
 
-Navigate to the "Policies" section and click on "Create Policy" to begin crafting a new policy.
+![alt text](img/image-17.png)
 
-Alt text
+![alt text](img/image-18.png)
 
-Choose the two services, EC2 and S3, from the available options.
+![alt text](img/image-19.png)
 
-Alt text
-Alt text
-Image 3:
+![alt text](img/image-20.png)
 
-Enter the desired policy name and proceed to click on the "Create policy" button.
 
-Alt text
+5. Navigate to the "Policies" section and click on "Create Policy" to begin crafting a new policy.
 
-Navigate to the "Users group" section and select the "Development-team" group.
+![alt text](img/image-21.png)
 
-Alt text
 
-Proceed to the "Permissions" section and add the necessary permissions.
+6. Choose the two services, EC2 and S3, from the available options.
 
-Alt text
 
-Click on attach policy
 
-Alt text
+7. Enter the desired policy name and proceed to click on the "Create policy" button.
 
-Select "Customer Managed Policy" as the policy type.
+![Alt text](img/image-21.png)
 
-a) Then choose the "development-policy" you created.
-b) click "Attach Policy."
-Alt text
+8. Navigate to the "Users group" section and select the "Development-team" group.
+
+![Alt text](img/image-22.png)
+
+9. Proceed to the "Permissions" section and add the necessary permissions.
+
+![Alt text](img/image-21.png)
+
+10. Click on attach policy
+
+![alt text](img/image-23.png)
+
+11. Select "Customer Managed Policy" as the policy type.
+
+a. Then choose the "development-policy" you created.
+b. click "Attach Policy."
+
+![alt text](img/image-24.png)
+
+
 The policy is now attached to the group, granting full permissions to EC2 and S3 for the group's users.
-Alt text
+
+![alt text](img/image-25.png)
+
 Project reflection:
 
 Understanding IAM: IAM serves as the security foundation for AWS resources, controlling access and permissions.
