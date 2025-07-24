@@ -65,6 +65,25 @@ A command may consits of options and parameters, but they are not always require
 
 **Note:** *It's important to note that Linux commands are case sensitive, so you need to enter them exactly as they are spelled and formatted.*
 
+**Commands with options and parameters**
+For example, the `cp` command is used to copy a file from one location to another. The parameters in this case are the names of the source and destination files, while the `-p` option is used to preserve the file permissions and timestamps.
+
+**Examples**
+
+```bash
+	cp -p source_file destination_file
+
+    cp -r source_directory destination_directory
+
+    cp -rf source_directory destination_directory
+
+    mv -rf source_directory destination_directory
+```
+
+Where -rf is used to force the copy operation and -r is used to copy directories recursively.
+
+**Note:** *It's important to note that Linux commands are case sensitive, so you need to enter them exactly as they are spelled and formatted.*
+
 ## Manipulating files and directories on Linux
 Most of the time on Linux will be spent working with files and directories. Hence, it is very important to know how to work with them. In the next section, we will docus on different commands that covers different commands that covers different use cases of manipulating files and directories on Linux.
 

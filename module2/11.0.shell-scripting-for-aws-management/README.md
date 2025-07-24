@@ -9,15 +9,36 @@ CloudOps Solutions is a growing company that recently adopted AWS to manage its 
 You will extend your shell script capabilities by creating more functions inside the "aws-iam-manager.sh" script to fulfill the objectives below. Ensure that you have already configured AWS CLI in your terminal and the configured AWS Account have the appropriate permissions to manage IAM resources.
 
 ## Objectives:
-Extend the provided script to include IAM management by:  Defining IAM User Names Array to store the names of the five IAM users in an array for easy iteration during user creation.  
-Create the IAM users as you iterate through the array using AWS CLI commands.  
-Define and call function to create an IAM group named "admin" using the AWS CLI commands.  
-Attach AWS managed administrative policy e.g. "AdministratorAccess" to the "admin" group to grant administrative privileges.  
-Iterate through the array of IAM usernames and assign each user to the "admin" group using AWS CLI commands.
+- Extend the provided script to include IAM management by:  Defining IAM User Names Array to store the names of the five IAM users in an array for easy iteration during user creation.  
+
+- Create the IAM users as you iterate through the array using AWS CLI commands.  
+
+- Define and call function to create an IAM group named "admin" using the AWS CLI commands.  
+
+- Attach AWS managed administrative policy e.g. "AdministratorAccess" to the "admin" group to grant administrative privileges.  
+
+- Iterate through the array of IAM usernames and assign each user to the "admin" group using AWS CLI commands.
+
+## Pre-requisite
+
+- Ensure that you have already configured AWS CLI in your terminal and the configured AWS Account have the appropriate permissions to manage IAM resources.
+- COmpletion of the Linux foundation Shell Scripting mini projects
+
+Submit the following deliverables:
+
+1. Comprehensive Documentation detailing your entire proccess in developing the script
+
+2. [Link to the extended script](aw-iam-manager.sh)
 
 
+## Solution
 
-```
+Below is the entire thought process and the scipt to the external script along with some images to show the script at work
+
+### Step 1: Write the script using the format below. 
+see [aws-iam-manager.sh](aw-iam-manager.sh) script for full shell script.
+
+```bash
 #!/bin/bash
 
 # AWS IAM Manager Script for CloudOps Solutions
@@ -43,3 +64,22 @@ main
 
 exit 0
 ```
+### Step 2: confirm that awscli is installed using;
+
+```bash
+aws --version
+```
+
+![alt text](image-1.png)
+
+### step 3: ssh into aws with an aws iam user credentials using
+
+```bash
+aws configure
+```
+
+![alt text](image.png)
+
+**Step 3: Rund scrip to ensure all are working well**
+
+![run script]()
