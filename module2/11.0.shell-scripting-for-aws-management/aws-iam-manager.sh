@@ -30,6 +30,8 @@ create_iam_users() {
 }
 
 # Function to create admin group and attach policy
+# This function helps to create an admin group and attach the AdministratorAccess policy to it
+
 create_admin_group() {
     echo "Creating admin group and attaching policy..."
     echo "--------------------------------------------"
