@@ -36,7 +36,7 @@ Submit the following deliverables:
 Below is the entire thought process and the scipt to the external script along with some images to show the script at work
 
 ### Step 1: Write the script using the format below. 
-see [aws-iam-manager.sh](aw-iam-manager.sh) script for full shell script.
+see [aws-iam-manager.sh](aws-iam-manager.sh) script for full shell script.
 
 ```bash
 ##!/bin/bash

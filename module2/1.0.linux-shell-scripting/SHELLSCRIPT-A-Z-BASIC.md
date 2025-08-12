@@ -1,5 +1,22 @@
 # Shell Scripting Basics - Beginner's Guide
 
+## Table of Contents
+- [What is Shell Scripting?](#what-is-shell-scripting)
+- [1. Getting Started](#1-getting-started)
+  - [Creating Your First Script](#creating-your-first-script)
+- [2. Variables](#2-variables)
+  - [Basic Variable Declaration](#basic-variable-declaration)
+  - [Variable Rules](#variable-rules)
+  - [Special Variables](#special-variables)
+- [3. Input and Output](#3-input-and-output)
+  - [Reading User Input](#reading-user-input)
+  - [Input from a file](#input-from-a-file)
+  - [Redirecting Output](#redirecting-output)
+  - [Appending Output](#appending-output)
+  - [Echo vs Printf](#echo-vs-printf)
+- [4. Conditional Statements](#4-conditional-statements)
+  - [If-Then-Else](#if-then-else)
+
 ## What is Shell Scripting?
 A shell script is a text file containing a sequence of commands that are executed by the shell (command interpreter). It's like automating commands you would normally type one by one.
 
@@ -159,8 +176,9 @@ printf "%s goes to %s,\n\nevery day by  %s and comes back home at %s.\n\nHe is a
 ```bash
 #!/bin/bash
 name=""
-if [ -z "$name" ]; then
+if [ -z "$name" ]; then 
     echo "Name is empty"
+    # if empty is the value of name string, then echo "Name is empty"
 fi
 ```
 
@@ -179,6 +197,8 @@ if [ -f "$file" ]; then
 else
     echo "File does not exist"
 fi
+
+# if file exists is true for value of file string, then echo "File exists". else echo "File does not exist".
 ```
 
 The above is read as "if the file exists, then echo "File exists". else echo "File does not exist"." also read as if file is true for value of file string, then echo "File exists". else echo "File does not exist".
@@ -240,6 +260,8 @@ done
 for ((i=1; i<=5; i++)); do
     echo "Count: $i"
 done
+
+# Where the first i is the variable, the second i is the condition, and the third i++ is the increment
 ```
 
 ### While Loop
@@ -285,6 +307,9 @@ add_numbers() {
     local sum=$((num1 + num2))
     echo $sum  # This becomes the return value
 }
+
+# function add_numbers with local variables num1 equals first argument passed to the function and num2 equals second argument passed to the function and sum equals num1 plus num2, echo sum..
+
 
 #Where
 #local means the variable is only accessible within the function
