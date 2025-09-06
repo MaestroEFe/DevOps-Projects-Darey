@@ -28,7 +28,7 @@ Submit the following deliverables:
 
 1. Comprehensive Documentation detailing your entire proccess in developing the script
 
-2. [Link to the extended script](aw-iam-manager.sh)
+2. [Link to the extended script](aws-iam-manager.sh)
 
 
 ## Solution

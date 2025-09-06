@@ -16,7 +16,7 @@ create_iam_users() {
         aws iam create-user --user-name "$user"
         
         # Check if user was created successfully
-        if [ $? -eq 0 ]; then #where $? is the exit status of the last command
+        if [ $? -eq 0 ]; then #where $? is the exit status of the last command and -eq is used to compare the exit status with 0. If it is 0, it means the command was successful. If it is not 0, it means the command failed.
             echo "Successfully created IAM user: $user"
         else
             echo "Error: Failed to create IAM user: $user"
@@ -37,7 +37,7 @@ create_admin_group() {
     echo "--------------------------------------------"
     
     # Check if group already exists
-    if ! aws iam get-group --group-name "admin" >/dev/null 2>&1; then
+    if ! aws iam get-group --group-name "admin" >/dev/null 2>&1; then # the >/dev/null 2>&1; is used to suppress the output of the command and the exit status of the command is stored in the variable $?.
         echo "Creating admin group..."
         aws iam create-group --group-name "admin"
         if [ $? -ne 0 ]; then
@@ -52,7 +52,7 @@ create_admin_group() {
     echo "Attaching AdministratorAccess policy..."
     aws iam attach-group-policy \
         --group-name "admin" \
-        --policy-arn "arn:aws:iam::aws:policy/AdministratorAccess"
+        --policy-arn "arn:aws:iam::aws:policy/AdministratorAccess" # the arn:aws:iam::aws:policy/AdministratorAccess is the ARN of the AdministratorAccess policy
         
     if [ $? -eq 0 ]; then
         echo "Success: AdministratorAccess policy attached"
@@ -96,7 +96,7 @@ main() {
     echo ""
     
     # Verify AWS CLI is installed and configured
-    if ! command -v aws &> /dev/null; then
+    if ! command -v aws &> /dev/null; then # the &> /dev/null; is used to suppress the output of the command and the exit status of the command is stored in the variable $?.
         echo "
         Error: AWS CLI is not installed. Please install and configure it first wuith the following command: 
         

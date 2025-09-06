@@ -94,7 +94,7 @@ The example below shows how to read input from a file:
 echo "Reading from file..."
 while read line; do
     echo "$line"
-done < input.txt
+done < input.txt #this outputs the contents of the file input.txt
 ```
 
 **Note:** The `<` (called redirection operator) is used to redirect input from a file. It is a short form of `--input` or `--in` flag or option.
